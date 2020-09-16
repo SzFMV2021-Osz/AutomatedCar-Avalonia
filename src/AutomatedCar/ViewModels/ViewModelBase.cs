@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ReactiveUI;
+﻿namespace AutomatedCar.ViewModels
+{
+    using ReactiveUI;
 
-namespace AutomatedCar.ViewModels {
-    public class ViewModelBase : ReactiveObject { }
+    public class ViewModelBase : ReactiveObject
+    {
+    }
 }

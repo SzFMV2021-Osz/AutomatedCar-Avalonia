@@ -1,4 +1,6 @@
-public interface IReadOnlyDummyPacket {
+public interface IReadOnlyDummyPacket
+{
     int DistanceX { get; }
+
     int DistanceY { get; }
 }

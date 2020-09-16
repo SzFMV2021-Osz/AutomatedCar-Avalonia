@@ -1,29 +1,37 @@
-using AutomatedCar.SystemComponents;
-using Avalonia.Media;
-
-namespace AutomatedCar.Models {
+namespace AutomatedCar.Models
+{
+    using Avalonia.Media;
     using SystemComponents;
 
-    public class AutomatedCar : Car {
+    public class AutomatedCar : Car
+    {
         private VirtualFunctionBus virtualFunctionBus;
         private DummySensor dummySensor;
 
-        public AutomatedCar (int x, int y, string filename) : base (x, y, filename) {
-            virtualFunctionBus = new VirtualFunctionBus ();
-            dummySensor = new DummySensor (virtualFunctionBus);
-            Brush = new SolidColorBrush (Color.Parse ("red"));
+        public AutomatedCar(int x, int y, string filename)
+            : base(x, y, filename)
+        {
+            this.virtualFunctionBus = new VirtualFunctionBus();
+            this.dummySensor = new DummySensor(this.virtualFunctionBus);
+            this.Brush = new SolidColorBrush(Color.Parse("red"));
         }
 
-        public VirtualFunctionBus VirtualFunctionBus { get => virtualFunctionBus; }
+        public VirtualFunctionBus VirtualFunctionBus { get => this.virtualFunctionBus; }
+
         public Geometry Geometry { get; set; }
+
         public SolidColorBrush Brush { get; private set; }
 
-        public void Start () {
-            virtualFunctionBus.Start ();
-        }
-        public void Stop () {
-            virtualFunctionBus.Stop ();
+        /// <summary>Starts the automated cor by starting the ticker in the Virtual Function Bus, that cyclically calls the system components.</summary>
+        public void Start()
+        {
+            this.virtualFunctionBus.Start();
         }
 
+        /// <summary>Stops the automated cor by stopping the ticker in the Virtual Function Bus, that cyclically calls the system components.</summary>
+        public void Stop()
+        {
+            this.virtualFunctionBus.Stop();
+        }
     }
 }
