@@ -16,21 +16,16 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 3.1.401
     - name: Install dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
     - name: Codecov report
       if: success()
-      run: bash <(curl -s https://codecov.io/bash)
-    - uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} #required
-        #file: ./coverage.xml #optional
-        flags: unittests #optional
-        name: codecov-umbrella #optional
-        yml: ./codecov.yml #optional
-        fail_ci_if_error: true #optional (default = false)
+      run: |
+        curl -s https://codecov.io/bash > codecov
+        chmod +x codecov
+        ./codecov -t ${{ secrets.CODECOV_TOKEN }}
