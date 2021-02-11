@@ -1,8 +1,3 @@
-![.NET Core](https://github.com/SzFMV2020-Osz/AutomatedCar-B/workflows/.NET%20Core/badge.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/szfmv2020-osz/automatedcar-b/badge)](https://www.codefactor.io/repository/github/szfmv2020-osz/automatedcar-b)
-[![codecov](https://codecov.io/gh/SzFMV2020-Osz/AutomatedCar-B/branch/master/graph/badge.svg)](https://codecov.io/gh/SzFMV2020-Osz/AutomatedCar-B)
-[![Handout](https://img.shields.io/badge/handout-jegyzet-48165B.svg?style=flat)](https://szfmv2020-osz.github.io/handout/)
-
 # AutomatedCar
 
 The program simulates the behavior of a passenger vehicle on the public road, equipped with driver assistance functions.
