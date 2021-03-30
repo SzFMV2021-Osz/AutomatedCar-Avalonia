@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/AutomatedCar/bin/Debug/netcoreapp3.0/AutomatedCar.dll",
+            "program": "${workspaceFolder}/src/AutomatedCar/bin/Debug/net5.0/AutomatedCar.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src",
             "console": "internalConsole",
