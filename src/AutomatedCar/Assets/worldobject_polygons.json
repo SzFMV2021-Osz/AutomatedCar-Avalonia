@@ -1,10 +1,10 @@
 {
 "objects": [
   {
-    "typename": "car_1_white",
+    "type": "car_1_white",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [51, 239],
           [40, 238],
@@ -80,10 +80,10 @@
     ]
   },
   {
-    "typename": "car_1_blue",
+    "type": "car_1_blue",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [51, 239],
           [40, 238],
@@ -159,10 +159,10 @@
     ]
   },
   {
-    "typename": "car_1_red",
+    "type": "car_1_red",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [51, 239],
           [40, 238],
@@ -238,10 +238,10 @@
     ]
   },
   {
-    "typename": "car_2_white",
+    "type": "car_2_white",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 1],
           [38, 2],
@@ -297,10 +297,10 @@
     ]
   },
   {
-    "typename": "car_2_red",
+    "type": "car_2_red",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 1],
           [38, 2],
@@ -355,10 +355,10 @@
     ]
   },
   {
-    "typename": "car_2_blue",
+    "type": "car_2_blue",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 1],
           [38, 2],
@@ -413,10 +413,10 @@
     ]
   },
   {
-    "typename": "car_3_black",
+    "type": "car_3_black",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [60, 1],
           [45, 1],
@@ -462,10 +462,10 @@
     ]
   },
   {
-    "typename": "road_2lane_90right",
+    "type": "road_2lane_90right",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [339, 525],
           [340, 509],
@@ -489,7 +489,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [175, 525],
           [176, 494],
@@ -513,7 +513,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [10, 525],
           [12, 480],
@@ -539,10 +539,10 @@
     ]
   },
   {
-    "typename": "road_2lane_90left",
+    "type": "road_2lane_90left",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [185, 525],
           [184, 509],
@@ -566,7 +566,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [350, 525],
           [349, 494],
@@ -590,7 +590,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [515, 525],
           [513, 480],
@@ -616,10 +616,10 @@
     ]
   },
   {
-    "typename": "road_2lane_45right",
+    "type": "road_2lane_45right",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [339, 371],
           [340, 355],
@@ -634,7 +634,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [175, 371],
           [176, 340],
@@ -649,7 +649,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [10, 371],
           [12, 326],
@@ -666,10 +666,10 @@
     ]
   },
   {
-    "typename": "road_2lane_45left",
+    "type": "road_2lane_45left",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [62, 371],
           [61, 355],
@@ -684,7 +684,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [227, 371],
           [225, 340],
@@ -699,7 +699,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [391, 371],
           [389, 326],
@@ -716,10 +716,10 @@
     ]
   },
   {
-    "typename": "road_2lane_6right",
+    "type": "road_2lane_6right",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [340, 367],
           [340, 349],
@@ -743,7 +743,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [175, 367],
           [175, 348],
@@ -767,7 +767,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [10, 367],
           [10, 347],
@@ -793,10 +793,10 @@
     ]
   },
   {
-    "typename": "road_2lane_6left",
+    "type": "road_2lane_6left",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [27, 367],
           [27, 349],
@@ -820,7 +820,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [192, 367],
           [192, 348],
@@ -844,7 +844,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [357, 367],
           [357, 347],
@@ -870,24 +870,24 @@
     ]
   },
   {
-    "typename": "road_2lane_straight",
+    "type": "road_2lane_straight",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [10, 0],
           [10, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [175, 0],
           [175, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [340, 0],
           [340, 350]
@@ -896,108 +896,108 @@
     ]
   },
   {
-    "typename": "2_crossroad_1",
+    "type": "2_crossroad_1",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 865],
           [350, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 535],
           [350, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 700],
           [350, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 865],
           [1050, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 535],
           [1050, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 700],
           [1050, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 0],
           [535, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 0],
           [865, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 0],
           [700, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 1400],
           [535, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 1400],
           [865, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 1400],
           [700, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 350],
           [865, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 350],
           [535, 1050]
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 350],
           [519, 380],
@@ -1011,7 +1011,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 350],
           [881, 380],
@@ -1025,7 +1025,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 1050],
           [519, 1020],
@@ -1039,7 +1039,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 1050],
           [881, 1020],
@@ -1055,94 +1055,94 @@
     ]
   },
   {
-    "typename": "2_crossroad_2",
+    "type": "2_crossroad_2",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 865],
           [350, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 535],
           [350, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 700],
           [350, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 865],
           [1050, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 535],
           [1050, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 700],
           [1050, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 0],
           [535, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 0],
           [865, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 0],
           [700, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 1400],
           [535, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 1400],
           [865, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 1400],
           [700, 1050]
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 350],
           [519, 380],
@@ -1156,7 +1156,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 350],
           [881, 380],
@@ -1170,7 +1170,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 1050],
           [519, 1020],
@@ -1184,7 +1184,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 1050],
           [881, 1020],
@@ -1200,94 +1200,94 @@
     ]
   },
   {
-    "typename": "road_2lane_rotary",
+    "type": "road_2lane_rotary",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 865],
           [350, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 535],
           [350, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 700],
           [350, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 865],
           [1050, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 535],
           [1050, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [1400, 700],
           [1050, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 0],
           [535, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 0],
           [865, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 0],
           [700, 350]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 1400],
           [535, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 1400],
           [865, 1050]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 1400],
           [700, 1050]
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 350],
           [519, 380],
@@ -1301,7 +1301,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 350],
           [881, 380],
@@ -1315,7 +1315,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 1050],
           [519, 1020],
@@ -1329,7 +1329,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [865, 1050],
           [881, 1020],
@@ -1343,7 +1343,7 @@
         ]
       },
       {
-        "type": "circle",
+        "polytype": "circle",
         "points": [
           [875, 700],
           [874, 715],
@@ -1421,7 +1421,7 @@
         ]
       },
       {
-        "type": "circle",
+        "polytype": "circle",
         "points": [
           [1050, 700],
           [1049, 731],
@@ -1501,52 +1501,52 @@
     ]
   },
   {
-    "typename": "road_2lane_tjunctionleft",
+    "type": "road_2lane_tjunctionleft",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 865],
           [350, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 535],
           [350, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 700],
           [350, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [865, 0],
           [865, 1400]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [535, 0],
           [535, 1400]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [700, 0],
           [700, 1400]
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 350],
           [519, 380],
@@ -1560,7 +1560,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [535, 1049],
           [519, 1020],
@@ -1576,52 +1576,52 @@
     ]
   },
   {
-    "typename": "road_2lane_tjunctionright",
+    "type": "road_2lane_tjunctionright",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [875, 865],
           [525, 865]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [875, 535],
           [525, 535]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [875, 700],
           [525, 700]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [10, 0],
           [10, 1400]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [340, 0],
           [340, 1400]
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [175, 0],
           [175, 1400]
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [340, 350],
           [356, 380],
@@ -1635,7 +1635,7 @@
         ]
       },
       {
-        "type": "curve",
+        "polytype": "curve",
         "points": [
           [341, 1049],
           [356, 1020],
@@ -1651,10 +1651,10 @@
     ]
   },
   {
-    "typename": "parking_90",
+    "type": "parking_90",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 469],
           [293, 469],
@@ -1662,7 +1662,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 313],
           [293, 313],
@@ -1670,7 +1670,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 157],
           [293, 157],
@@ -1681,10 +1681,10 @@
     ]
   },
   {
-    "typename": "parking_space_parallel",
+    "type": "parking_space_parallel",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 618],
           [136, 618],
@@ -1692,7 +1692,7 @@
         ]
       },
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 312],
           [136, 312],
@@ -1703,10 +1703,10 @@
     ]
   },
   {
-    "typename": "garage",
+    "type": "garage",
     "polys": [
       {
-        "type": "lane",
+        "polytype": "lane",
         "points": [
           [0, 0],
           [0, 244],
@@ -1717,10 +1717,10 @@
     ]
   },
   {
-    "typename": "tree",
+    "type": "tree",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [92, 81],
           [91, 88],
@@ -1746,10 +1746,10 @@
     ]
   },
   {
-    "typename": "roadsign_parking_right",
+    "type": "roadsign_parking_right",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 40],
           [49, 43],
@@ -1775,10 +1775,10 @@
     ]
   },
   {
-    "typename": "roadsign_priority_stop",
+    "type": "roadsign_priority_stop",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 40],
           [49, 43],
@@ -1804,10 +1804,10 @@
     ]
   },
   {
-    "typename": "roadsign_speed_40",
+    "type": "roadsign_speed_40",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 40],
           [49, 43],
@@ -1833,10 +1833,10 @@
     ]
   },
   {
-    "typename": "roadsign_speed_50",
+    "type": "roadsign_speed_50",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 40],
           [49, 43],
@@ -1862,10 +1862,10 @@
     ]
   },
   {
-    "typename": "roadsign_speed_60",
+    "type": "roadsign_speed_60",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [50, 40],
           [49, 43],
@@ -1891,10 +1891,10 @@
     ]
   },
   {
-    "typename": "bollard",
+    "type": "bollard",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [20, 50],
           [19, 53],
@@ -1920,10 +1920,10 @@
     ]
   },
   {
-    "typename": "boundary",
+    "type": "boundary",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [0, 0],
           [51, 0],
@@ -1935,10 +1935,10 @@
     ]
   },
   {
-    "typename": "man",
+    "type": "man",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [37, 36],
           [36, 39],
@@ -1964,10 +1964,10 @@
     ]
   },
   {
-    "typename": "woman",
+    "type": "woman",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [42, 37],
           [40, 40],
@@ -1993,10 +1993,10 @@
     ]
   },
   {
-    "typename": "bicycle",
+    "type": "bicycle",
     "polys": [
       {
-        "type": "standalone",
+        "polytype": "standalone",
         "points": [
           [68, 60],
           [67, 69],
