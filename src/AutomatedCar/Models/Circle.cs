@@ -13,6 +13,10 @@ namespace AutomatedCar.Models
 
         public int Radius { get; set; }
 
+        public int Width { get; set; }
+
+        public int Height { get; set; }
+
         public double CalculateArea()
         {
             return Math.PI * this.Radius * this.Radius;
