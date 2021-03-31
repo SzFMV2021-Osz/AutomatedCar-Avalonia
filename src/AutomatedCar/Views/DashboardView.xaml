@@ -26,7 +26,7 @@
                     <DataTemplate DataType="{x:Type models:AutomatedCar}">
                         <StackPanel>
                             <TextBlock Text="Dashboard"/>
-                            <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                            <Grid ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
                                 <TextBlock Grid.Row="0" Grid.Column="0">X:</TextBlock>
                                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding X}"/>
                                 <TextBlock Grid.Row="1" Grid.Column="0">Y:</TextBlock>
@@ -37,6 +37,8 @@
                                 <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding VirtualFunctionBus.DummyPacket.DistanceX}"/>
                                 <TextBlock Grid.Row="4" Grid.Column="0">Distance Y:</TextBlock>
                                 <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding VirtualFunctionBus.DummyPacket.DistanceY}"/>
+                                <TextBlock Grid.Row="5" Grid.Column="0">Rotation:</TextBlock>
+                                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Rotation}"/>
                             </Grid>
                         </StackPanel>
                     </DataTemplate>
