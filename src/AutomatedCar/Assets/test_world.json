@@ -1,6 +1,6 @@
 {
-  "height": "3000",
-  "width": "5120",
+  "height": 3000,
+  "width": 5120,
   "objects": [
     {
       "type": "road_2lane_straight",
