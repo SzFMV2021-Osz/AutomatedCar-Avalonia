@@ -23,17 +23,30 @@ namespace AutomatedCar
             {
                 this.world.ControlledCar.Y -= 5;
             }
-            else if (Keyboard.IsKeyDown(Key.Down))
+
+            if (Keyboard.IsKeyDown(Key.Down))
             {
                 this.world.ControlledCar.Y += 5;
             }
-            else if (Keyboard.IsKeyDown(Key.Left))
+
+            if (Keyboard.IsKeyDown(Key.Left))
             {
                 this.world.ControlledCar.X -= 5;
             }
-            else if (Keyboard.IsKeyDown(Key.Right))
+
+            if (Keyboard.IsKeyDown(Key.Right))
             {
                 this.world.ControlledCar.X += 5;
+            }
+
+            if (Keyboard.IsKeyDown(Key.PageUp))
+            {
+                this.world.ControlledCar.Rotation += 5;
+            }
+
+            if (Keyboard.IsKeyDown(Key.PageDown))
+            {
+                this.world.ControlledCar.Rotation -= 5;
             }
         }
     }
