@@ -42,6 +42,8 @@
         {
             var rotationPoints = ReadRotationsPoints();
             var renderTransformOrigins = CalculateRenderTransformOrigins();
+            ReadPolygonJSON();
+
             StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream(filename));
 
@@ -88,6 +90,18 @@
             }
 
             return result;
+        }
+
+        public void ReadPolygonJSON(string filename = "worldobject_polygons.json")
+        {
+            StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream($"AutomatedCar.Assets.{filename}"));
+
+            var objects = JsonConvert.DeserializeObject<Dictionary<string, List<RawWorldObjectPolygon>>>(reader.ReadToEnd())["objects"];
+            foreach (RawWorldObjectPolygon rwop in objects)
+            {
+
+            }
         }
 
         // It accepts different string values than WPF. For .5,.5 you actually need 50%,50%. .5,.5 is treated as "half of the logical pixel" in both directions instead of "half of the control"
