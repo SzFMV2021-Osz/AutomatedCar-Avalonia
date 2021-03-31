@@ -7,30 +7,30 @@ namespace AutomatedCar.Visualization
     using Avalonia.Data.Converters;
     using Avalonia.Media.Imaging;
 
-    public class WorldObjectTransformer : IValueConverter
+    public class WorldObjectWidthTransformer : IValueConverter
     {
-        private static Dictionary<string, Bitmap> cache = new Dictionary<string, Bitmap>();
+        private static Dictionary<string, double> cache = new Dictionary<string, double>();
 
         public static WorldObjectTransformer Instance { get; } = new WorldObjectTransformer();
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) =>
-            GetCachedImage((string)value);
+            GetCachedValue((string)value);
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException();
         }
 
-        private static Bitmap GetCachedImage(string filename)
+        private static int GetCachedValue(string filename)
         {
             if (!cache.ContainsKey(filename))
             {
-                cache.Add(filename,
-                    new Bitmap(Assembly.GetExecutingAssembly()
-                        .GetManifestResourceStream($"AutomatedCar.Assets.WorldObjects.{filename}")));
+                var img = new Bitmap(Assembly.GetExecutingAssembly()
+                        .GetManifestResourceStream($"AutomatedCar.Assets.WorldObjects.{filename}"));
+                cache.Add(filename, img.Size.Width);
             }
 
-            return cache[filename];
+            return System.Convert.ToInt32(cache[filename]);
         }
     }
 }
