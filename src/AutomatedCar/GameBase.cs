@@ -7,7 +7,7 @@ namespace AutomatedCar
     {
         public const int TicksPerSecond = 60;
 
-        private readonly DispatcherTimer _timer =
+        private readonly DispatcherTimer timer =
             new DispatcherTimer() {Interval = new TimeSpan(0, 0, 0, 0, 1000 / TicksPerSecond)};
 
         public long CurrentTick { get; private set; }
@@ -22,11 +22,11 @@ namespace AutomatedCar
 
         protected GameBase()
         {
-            this._timer.Tick += delegate { DoTick(); };
+            this.timer.Tick += delegate { DoTick(); };
         }
 
-        public void Start() => this._timer.IsEnabled = true;
+        public void Start() => this.timer.IsEnabled = true;
 
-        public void Stop() => this._timer.IsEnabled = false;
+        public void Stop() => this.timer.IsEnabled = false;
     }
 }
