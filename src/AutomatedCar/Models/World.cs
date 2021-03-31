@@ -1,14 +1,23 @@
 ﻿namespace AutomatedCar.Models
 {
+    using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
+    using System.Globalization;
+    using System.IO;
+    using System.Reflection;
+    using Newtonsoft.Json;
     using ReactiveUI;
+    using Helpers;
 
     public class World : ReactiveObject
     {
         // private static readonly System.Lazy<World> lazySingleton = new System.Lazy<World> (() => new World());
         // public static World Instance { get { return lazySingleton.Value; } }
 
-        private AutomatedCar _controlledCar;
+        private AutomatedCar controlledCar;
 
         public static World Instance { get; } = new World();
 
@@ -16,8 +25,8 @@
 
         public AutomatedCar ControlledCar
         {
-            get => this._controlledCar;
-            set => this.RaiseAndSetIfChanged(ref this._controlledCar, value);
+            get => this.controlledCar;
+            set => this.RaiseAndSetIfChanged(ref this.controlledCar, value);
         }
 
         public int Width { get; set; }
@@ -28,5 +37,117 @@
         {
             this.WorldObjects.Add(worldObject);
         }
+
+        public void PopulateFromJSON(string filename)
+        {
+            var rotationPoints = ReadRotationsPoints();
+            var renderTransformOrigins = CalculateRenderTransformOrigins();
+            StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream(filename));
+
+            RawWorld rawWorld = JsonConvert.DeserializeObject<RawWorld>(reader.ReadToEnd());
+            this.Height = rawWorld.Height;
+            this.Width = rawWorld.Width;
+            foreach (RawWorldObject rwo in rawWorld.Objects)
+            {
+                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", GetZIndex(rwo.Type));
+                (int x, int y) rp = (0, 0);
+
+                if (rotationPoints.ContainsKey(rwo.Type))
+                {
+                    rp = rotationPoints[rwo.Type];
+                }
+
+                wo.RotationPoint = new System.Drawing.Point(rp.x, rp.y);
+
+                string rto = "0,0";
+
+                if (renderTransformOrigins.ContainsKey(rwo.Type))
+                {
+                   rto = renderTransformOrigins[rwo.Type];
+                }
+
+                wo.RenderTransformOrigin = rto;
+
+                wo.Rotation = RotationMatrixToDegree(rwo.M11, rwo.M12);
+                wo.Geometry = AddGeometry();
+                AddObject(wo);
+            }
+        }
+
+        public Dictionary<string, (int x, int y)> ReadRotationsPoints(string filename = "reference_points.json")
+        {
+            StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream($"AutomatedCar.Assets.{filename}"));
+
+            var rotationPoints = JsonConvert.DeserializeObject<List<RotationPoint>>(reader.ReadToEnd());
+            Dictionary<string, (int x, int y)> result = new ();
+            foreach (RotationPoint rp in rotationPoints)
+            {
+                result.Add(rp.Type, (rp.X, rp.Y));
+            }
+
+            return result;
+        }
+
+        // It accepts different string values than WPF. For .5,.5 you actually need 50%,50%. .5,.5 is treated as "half of the logical pixel" in both directions instead of "half of the control"
+        public Dictionary<string, string> CalculateRenderTransformOrigins(string filename = "reference_points.json")
+        {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream($"AutomatedCar.Assets.{filename}"));
+
+            var rotationPoints = JsonConvert.DeserializeObject<List<RotationPoint>>(reader.ReadToEnd());
+            Dictionary<string, string> result = new ();
+            foreach (RotationPoint rp in rotationPoints)
+            {
+                var img = new System.Drawing.Bitmap(Assembly.GetExecutingAssembly()
+                        .GetManifestResourceStream($"AutomatedCar.Assets.WorldObjects.{rp.Type}.png"));
+                var x = rp.Y / (double)img.Size.Width * 100.0;
+                var y = rp.X / (double)img.Size.Height * 100.0;
+                result.Add(rp.Type, x.ToString("0.00", nfi) + "%," + y.ToString("0.00", nfi) + "%");
+            }
+
+            return result;
+        }
+
+        // https://math.stackexchange.com/questions/3349681/angle-from-2x2-rotation-matrix
+        private double RotationMatrixToDegree(float m11, float m12)
+        {
+            // return Math.Atan2(m11, m12) * (180.0 / Math.PI);
+            var result = Math.Acos(m11) * (180.0 / Math.PI);
+            if (m12 < 0)
+            {
+                result = 360 - result;
+            }
+
+            return result;
+        }
+
+        private int GetZIndex(string type)
+        {
+            int result = 1;
+            if (type == "crosswalk")
+            {
+                result = 5;
+            }
+            return result;
+        }
+
+        public GraphicsPath AddGeometry()
+        {
+            GraphicsPath geom = new ();
+            List<Point> points = new ();
+            points.Add(new Point(50, 50));
+            points.Add(new Point(50, 100));
+            points.Add(new Point(100, 50));
+            points.Add(new Point(50, 50));
+            geom.AddPolygon(points.ToArray());
+            geom.CloseFigure();
+
+            return geom;
+        }
     }
+
 }

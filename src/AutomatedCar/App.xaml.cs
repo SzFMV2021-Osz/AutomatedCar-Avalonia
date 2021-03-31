@@ -36,8 +36,7 @@ namespace AutomatedCar
                 var geom = new PolylineGeometry(points, false);
 
                 var world = World.Instance;
-                world.Width = 2000;
-                world.Height = 1000;
+                world.PopulateFromJSON($"AutomatedCar.Assets.test_world.json");
 
                 var circle = new Circle(400, 200, "circle.png", 20);
                 circle.Width = 40;
@@ -49,6 +48,7 @@ namespace AutomatedCar
                 controlledCar.Width = 108;
                 controlledCar.Height = 240;
                 controlledCar.Geometry = geom;
+                controlledCar.RotationPoint = new System.Drawing.Point(54, 120);
                 world.AddObject(controlledCar);
                 world.ControlledCar = controlledCar;
                 controlledCar.Start();
@@ -56,7 +56,7 @@ namespace AutomatedCar
                 var game = new Game(world);
                 game.Start();
 
-                desktop.MainWindow = new MainWindow {DataContext = new MainWindowViewModel(world)};
+                desktop.MainWindow = new MainWindow { DataContext = new MainWindowViewModel(world) };
             }
 
             base.OnFrameworkInitializationCompleted();
