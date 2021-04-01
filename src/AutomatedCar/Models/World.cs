@@ -53,7 +53,7 @@
             this.Width = rawWorld.Width;
             foreach (RawWorldObject rwo in rawWorld.Objects)
             {
-                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", GetZIndex(rwo.Type));
+                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", DetermineZIndex(rwo.Type), DetermineCollidablity(rwo.Type));
                 (int x, int y) rp = (0, 0);
 
                 if (rotationPoints.ContainsKey(rwo.Type))
@@ -162,12 +162,23 @@
             return result;
         }
 
-        private int GetZIndex(string type)
+        private int DetermineZIndex(string type)
         {
             int result = 1;
             if (type == "crosswalk")
             {
                 result = 5;
+            }
+            return result;
+        }
+        private bool DetermineCollidablity(string type)
+        {
+            List<string> collideables = new List<string> { "boundary", "garage", "parking_bollard",
+                "roadsign_parking_right", "roadsign_priority_stop", "roadsign_speed_40", "roadsign_speed_50", "roadsign_speed_60", "tree" };
+            bool result = false;
+            if (collideables.Contains(type))
+            {
+                result = true;
             }
             return result;
         }
