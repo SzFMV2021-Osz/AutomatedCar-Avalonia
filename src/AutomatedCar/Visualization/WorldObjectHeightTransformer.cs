@@ -11,7 +11,7 @@ namespace AutomatedCar.Visualization
     {
         private static Dictionary<string, double> cache = new Dictionary<string, double>();
 
-        public static WorldObjectTransformer Instance { get; } = new WorldObjectTransformer();
+        public static WorldObjectHeightTransformer Instance { get; } = new WorldObjectHeightTransformer();
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) =>
             GetCachedValue((string)value);

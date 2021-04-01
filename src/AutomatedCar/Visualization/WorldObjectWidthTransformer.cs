@@ -11,7 +11,7 @@ namespace AutomatedCar.Visualization
     {
         private static Dictionary<string, double> cache = new Dictionary<string, double>();
 
-        public static WorldObjectTransformer Instance { get; } = new WorldObjectTransformer();
+        public static WorldObjectWidthTransformer Instance { get; } = new WorldObjectWidthTransformer();
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) =>
             GetCachedValue((string)value);
@@ -30,7 +30,8 @@ namespace AutomatedCar.Visualization
                 cache.Add(filename, img.Size.Width);
             }
 
-            return System.Convert.ToInt32(cache[filename]);
+            // return cache[filename];
+            return System.Convert.ToInt32(Math.Round(cache[filename]));
         }
     }
 }
