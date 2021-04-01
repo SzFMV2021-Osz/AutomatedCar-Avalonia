@@ -7,17 +7,20 @@ namespace AutomatedCar.Models
     {
         private VirtualFunctionBus virtualFunctionBus;
         private DummySensor dummySensor;
+        private RadarSensor radarSensor;
 
         public AutomatedCar(int x, int y, string filename)
             : base(x, y, filename)
         {
             this.virtualFunctionBus = new VirtualFunctionBus();
             this.dummySensor = new DummySensor(this.virtualFunctionBus);
+            this.radarSensor = new RadarSensor(this);
         }
 
         public VirtualFunctionBus VirtualFunctionBus { get => this.virtualFunctionBus; }
 
         public Geometry Geometry { get; set; }
+        public RadarSensor RadarSensor { get => radarSensor; }
 
         /// <summary>Starts the automated cor by starting the ticker in the Virtual Function Bus, that cyclically calls the system components.</summary>
         public void Start()
