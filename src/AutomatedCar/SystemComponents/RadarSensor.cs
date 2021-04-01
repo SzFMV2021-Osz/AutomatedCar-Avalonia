@@ -1,6 +1,5 @@
 namespace AutomatedCar.SystemComponents
 {
-    // using System.Drawing;
     using System.Collections.Generic;
     using AutomatedCar.Models;
     using Avalonia;
@@ -9,7 +8,6 @@ namespace AutomatedCar.SystemComponents
 
     public class RadarSensor : SystemComponent
     {
-        // private readonly List<Point> relativePoints = new List<Point> { new Point(54, 10), new Point(-54, -240), new Point(162, -240), new Point(54, 10) };
         private readonly PolylineGeometry geometry;
         private AutomatedCar car;
 
@@ -23,6 +21,7 @@ namespace AutomatedCar.SystemComponents
         }
 
         public Geometry Geometry { get => this.geometry; }
+
         public Geometry AboluteGeometry { get => new PolylineGeometry(this.GetAbsolutePoints(), false); }
 
         public override void Process()
@@ -36,6 +35,7 @@ namespace AutomatedCar.SystemComponents
             {
                 result.Add(new Point(this.car.X + p.X, this.car.Y + p.Y));
             }
+
             return result;
         }
     }
