@@ -1,6 +1,9 @@
 using System.Drawing;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using ReactiveUI;
 using System.Drawing.Drawing2D;
+using Avalonia.Media;
 
 namespace AutomatedCar.Models
 {
@@ -43,7 +46,9 @@ namespace AutomatedCar.Models
 
         public string RenderTransformOrigin { get; set; }
 
-        public GraphicsPath Geometry { get; set; }
+        // public GraphicsPath Geometry { get; set; }
+
+        public ObservableCollection<PolylineGeometry> Geometries { get; set; }
 
         public string Filename { get; set; }
     }

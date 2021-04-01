@@ -1,6 +1,7 @@
 namespace AutomatedCar
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.IO;
     using System.Reflection;
     using AutomatedCar.Models;
@@ -49,6 +50,9 @@ namespace AutomatedCar
                 controlledCar.Height = 240;
                 controlledCar.Geometry = geom;
                 controlledCar.RotationPoint = new System.Drawing.Point(54, 120);
+                controlledCar.Geometries = new ObservableCollection<PolylineGeometry>();
+                controlledCar.Geometries.Add(new PolylineGeometry(new List<Point> { new Point(36, 240), new Point(36, 180) }, false));
+                controlledCar.Geometries.Add(new PolylineGeometry(new List<Point> { new Point(72, 240), new Point(72, 180) }, false));
                 world.AddObject(controlledCar);
                 world.ControlledCar = controlledCar;
                 controlledCar.Start();

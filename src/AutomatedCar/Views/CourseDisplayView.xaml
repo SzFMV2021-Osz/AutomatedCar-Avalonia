@@ -43,7 +43,7 @@
                     </Canvas>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type models:AutomatedCar}">
-                    <Canvas Background="#ee9900" RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
+                    <Canvas RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
                         <Canvas.RenderTransform>
                             <TransformGroup>
                                 <RotateTransform Angle="{Binding Rotation}" />
@@ -52,6 +52,21 @@
                         <Image Width="{Binding Width}" Height="{Binding Height}"
                             Source="{Binding Filename, Converter={x:Static visualization:WorldObjectTransformer.Instance}}"/>
                         <Polyline Stroke="{Binding Brush, Mode=OneWay}" Points="{Binding Geometry.Points, Mode=OneWay}" />
+                        <Polyline Stroke="green" Points="54,0 54,120" />
+                        <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
+                        Width="{Binding Width}"
+                        Height="{Binding Height}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Polyline Stroke="#aa11ee" StrokeThickness="2.5" Points="{Binding Points}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </Canvas>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type models:WorldObject}">
@@ -68,6 +83,20 @@
                             Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
                             Source="{Binding Filename, Converter={x:Static visualization:WorldObjectTransformer.Instance}}"/>
 
+                        <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
+                            Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
+                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Polyline Stroke="#007ACB" StrokeThickness="3" Points="{Binding Points}"/>
+                                 </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </Canvas>
                 </DataTemplate>
             </ItemsControl.DataTemplates>
