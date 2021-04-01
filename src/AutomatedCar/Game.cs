@@ -48,6 +48,26 @@ namespace AutomatedCar
             {
                 this.world.ControlledCar.Rotation -= 5;
             }
+
+            if (Keyboard.IsKeyDown(Key.D1))
+            {
+                this.world.DebugStatus.Enabled = !this.world.DebugStatus.Enabled;
+            }
+
+            if (Keyboard.IsKeyDown(Key.D2))
+            {
+                this.world.DebugStatus.Camera = !this.world.DebugStatus.Camera;
+            }
+
+            if (Keyboard.IsKeyDown(Key.D3))
+            {
+                this.world.DebugStatus.Radar = !this.world.DebugStatus.Radar;
+            }
+
+            if (Keyboard.IsKeyDown(Key.D4))
+            {
+                this.world.DebugStatus.Ultrasonic = !this.world.DebugStatus.Ultrasonic;
+            }
         }
     }
 }

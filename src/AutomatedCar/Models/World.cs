@@ -11,6 +11,7 @@
     using Newtonsoft.Json;
     using ReactiveUI;
     using Helpers;
+    using Visualization;
     using Avalonia.Media;
 
     public class World : ReactiveObject
@@ -33,6 +34,14 @@
         public int Width { get; set; }
 
         public int Height { get; set; }
+
+        private DebugStatus debugStatus = new DebugStatus();
+
+        public DebugStatus DebugStatus
+        {
+            get => this.debugStatus;
+            set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
+        }
 
         public void AddObject(WorldObject worldObject)
         {

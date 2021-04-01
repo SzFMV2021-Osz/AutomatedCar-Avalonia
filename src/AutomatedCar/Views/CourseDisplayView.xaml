@@ -55,7 +55,8 @@
                         <Polyline Stroke="green" Points="54,0 54,120" />
                         <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
                             Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
-                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}">
+                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
+                            IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <Canvas/>
@@ -85,7 +86,8 @@
 
                         <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
                             Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
-                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}">
+                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
+                            IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <Canvas/>
