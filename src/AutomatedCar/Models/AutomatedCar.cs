@@ -20,10 +20,6 @@ namespace AutomatedCar.Models
 
         public Geometry Geometry { get; set; }
 
-        public int Width { get; set; }
-
-        public int Height { get; set; }
-
         public SolidColorBrush Brush { get; private set; }
 
         /// <summary>Starts the automated cor by starting the ticker in the Virtual Function Bus, that cyclically calls the system components.</summary>

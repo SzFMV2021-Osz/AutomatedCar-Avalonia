@@ -54,8 +54,8 @@
                         <Polyline Stroke="{Binding Brush, Mode=OneWay}" Points="{Binding Geometry.Points, Mode=OneWay}" />
                         <Polyline Stroke="green" Points="54,0 54,120" />
                         <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
-                        Width="{Binding Width}"
-                        Height="{Binding Height}">
+                            Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
+                            Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <Canvas/>

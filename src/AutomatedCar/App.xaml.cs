@@ -46,8 +46,6 @@ namespace AutomatedCar
                 world.AddObject(circle);
 
                 var controlledCar = new Models.AutomatedCar(50, 50, "car_1_white.png");
-                controlledCar.Width = 108;
-                controlledCar.Height = 240;
                 controlledCar.Geometry = geom;
                 controlledCar.RotationPoint = new System.Drawing.Point(54, 120);
                 controlledCar.Geometries = new ObservableCollection<PolylineGeometry>();
