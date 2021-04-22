@@ -5,12 +5,12 @@
     "y": 875
   },
   {
-    "type": "2_crossroad_1",
+    "type": "road_2lane_crossroad_1",
     "x": 0,
     "y": 875
   },
   {
-    "type": "2_crossroad_2",
+    "type": "road_2lane_crossroad_2",
     "x": 0,
     "y": 875
   },

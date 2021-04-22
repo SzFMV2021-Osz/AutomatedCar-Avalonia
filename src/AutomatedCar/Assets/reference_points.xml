@@ -3,10 +3,10 @@
     <Image name="road_2lane_rotary.png">
         <Refpoint x="0" y="875"/>
     </Image>
-    <Image name="2_crossroad_1.png">
+    <Image name="road_2lane_crossroad_1.png">
         <Refpoint x="0" y="875"/>
     </Image>
-    <Image name="2_crossroad_2.png">
+    <Image name="road_2lane_crossroad_2.png">
         <Refpoint x="0" y="875"/>
     </Image>
     <Image name="road_2lane_tjunctionleft.png">

@@ -896,7 +896,7 @@
     ]
   },
   {
-    "type": "2_crossroad_1",
+    "type": "road_2lane_crossroad_1",
     "polys": [
       {
         "polytype": "lane",
@@ -1055,7 +1055,7 @@
     ]
   },
   {
-    "type": "2_crossroad_2",
+    "type": "road_2lane_crossroad_2",
     "polys": [
       {
         "polytype": "lane",
