@@ -1651,7 +1651,7 @@
     ]
   },
   {
-    "type": "parking_90",
+    "type": "parking_space_90",
     "polys": [
       {
         "polytype": "lane",
