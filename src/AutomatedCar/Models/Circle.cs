@@ -1,6 +1,8 @@
 namespace AutomatedCar.Models
 {
     using System;
+    using Avalonia;
+    using Avalonia.Media;
 
     /// <summary>This is a dummy object for demonstrating the codebase.</summary>
     public class Circle : WorldObject
@@ -9,6 +11,14 @@ namespace AutomatedCar.Models
             : base(x, y, filename)
         {
             this.Radius = radius;
+            var geom = new PolylineGeometry();
+            geom.Points.Add(new Point(radius, 0));
+            geom.Points.Add(new Point(2 * radius, radius));
+            geom.Points.Add(new Point(radius, 2 * radius));
+            geom.Points.Add(new Point(0, radius));
+            geom.Points.Add(new Point(radius, 0));
+            this.Geometries.Add(geom);
+            this.RawGeometries.Add(geom);
         }
 
         public int Radius { get; set; }
