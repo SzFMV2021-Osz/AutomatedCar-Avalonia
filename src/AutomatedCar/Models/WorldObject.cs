@@ -1,12 +1,10 @@
-using System.Drawing;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using ReactiveUI;
-using System.Drawing.Drawing2D;
-using Avalonia.Media;
-
 namespace AutomatedCar.Models
 {
+    using System.Collections.ObjectModel;
+    using System.Drawing;
+    using Avalonia.Media;
+    using ReactiveUI;
+
     public class WorldObject : ReactiveObject
     {
         private int x;
