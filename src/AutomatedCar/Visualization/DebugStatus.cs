@@ -1,6 +1,7 @@
 namespace AutomatedCar.Visualization
 {
     using ReactiveUI;
+
     public class DebugStatus : ReactiveObject
     {
         private bool enabled = false;

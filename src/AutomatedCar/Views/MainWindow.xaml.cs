@@ -1,21 +1,14 @@
-using System.ComponentModel;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Input;
-using Avalonia.Markup.Xaml;
-
 namespace AutomatedCar.Views
 {
+    using Avalonia.Controls;
+    using Avalonia.Input;
+    using Avalonia.Markup.Xaml;
+
     public class MainWindow : Window
     {
         public MainWindow()
         {
-            InitializeComponent();
-        }
-
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
+            this.InitializeComponent();
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -28,6 +21,11 @@ namespace AutomatedCar.Views
         {
             Keyboard.Keys.Remove(e.Key);
             base.OnKeyUp(e);
+        }
+
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
         }
     }
 }

@@ -25,7 +25,8 @@ namespace AutomatedCar.Visualization
         {
             if (!cache.ContainsKey(filename))
             {
-                cache.Add(filename,
+                cache.Add(
+                    filename,
                     new Bitmap(Assembly.GetExecutingAssembly()
                         .GetManifestResourceStream($"AutomatedCar.Assets.WorldObjects.{filename}")));
             }

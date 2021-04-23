@@ -46,8 +46,6 @@ namespace AutomatedCar.Models
 
         public string RenderTransformOrigin { get; set; }
 
-        // public GraphicsPath Geometry { get; set; }
-
         public ObservableCollection<PolylineGeometry> Geometries { get; set; } = new ();
 
         public ObservableCollection<PolylineGeometry> RawGeometries { get; set; } = new ();

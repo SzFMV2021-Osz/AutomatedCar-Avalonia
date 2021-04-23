@@ -7,7 +7,6 @@ namespace AutomatedCar.Visualization
 
     public class RenderTransformOriginTransformer : IValueConverter
     {
-
         public static RenderTransformOriginTransformer Instance { get; } = new RenderTransformOriginTransformer();
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -24,6 +23,5 @@ namespace AutomatedCar.Visualization
         {
             throw new NotSupportedException();
         }
-
     }
 }

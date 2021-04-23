@@ -20,7 +20,8 @@ namespace AutomatedCar.Models
         public VirtualFunctionBus VirtualFunctionBus { get => this.virtualFunctionBus; }
 
         public Geometry Geometry { get; set; }
-        public RadarSensor RadarSensor { get => radarSensor; }
+
+        public RadarSensor RadarSensor { get => this.radarSensor; }
 
         /// <summary>Starts the automated cor by starting the ticker in the Virtual Function Bus, that cyclically calls the system components.</summary>
         public void Start()
