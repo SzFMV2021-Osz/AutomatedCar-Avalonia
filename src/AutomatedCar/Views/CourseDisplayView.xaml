@@ -39,50 +39,26 @@
             <ItemsControl.DataTemplates>
                 <DataTemplate DataType="{x:Type models:Circle}">
                     <Canvas>
-                        <Canvas>
-                            <Canvas.RenderTransform>
-                                <TransformGroup>
-                                    <RotateTransform Angle="{Binding Rotation}" />
-                                </TransformGroup>
-                            </Canvas.RenderTransform>
-                            <Ellipse Fill="black" Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}"/>
-                            <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
-                                Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}"
-                                IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <Canvas/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Polyline Stroke="white" StrokeThickness="2" Points="{Binding Points}"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Canvas>
-                        <Canvas>
-                            <Canvas.RenderTransform>
-                                <TransformGroup>
-                                    <RotateTransform Angle="{Binding Rotation}" />
-                                </TransformGroup>
-                            </Canvas.RenderTransform>
-                            <Ellipse Fill="red" Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}" Opacity="0.25"/>
-                            <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
-                                Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}"
-                                IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <Canvas/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Polyline Stroke="yellow" StrokeThickness="2" Points="{Binding Points}"/>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Canvas>
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="{Binding Rotation}" />
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                        <Ellipse Fill="black" Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}"/>
+                        <ItemsControl Items="{Binding Geometries, Mode=OneWay}"
+                            Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}"
+                            IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Polyline Stroke="white" StrokeThickness="2" Points="{Binding Points}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </Canvas>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type models:AutomatedCar}">
