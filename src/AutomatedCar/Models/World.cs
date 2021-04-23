@@ -95,8 +95,6 @@
                     // apply rotation
                     foreach (var geometry in wo.Geometries)
                     {
-                        // foreach (var p in geometry.Points)
-                        //     System.Console.WriteLine(p);
                         var rotate = new RotateTransform(wo.Rotation);
                         var translate = new TranslateTransform(-wo.RotationPoint.X, -wo.RotationPoint.Y);
                         var transformGroup = new TransformGroup();
@@ -104,29 +102,9 @@
                         transformGroup.Children.Add(translate);
                         // geometry.Transform = transformGroup;
 
-                        // foreach (var p in geometry.Points) System.Console.WriteLine(p);
-
-                        //https://stackoverflow.com/questions/7105227/c-sharp-rotate-a-polygontriangle
-                        //https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.matrix.transformpoints?redirectedfrom=MSDN&view=net-5.0#System_Drawing_Drawing2D_Matrix_TransformPoints_System_Drawing_Point___
-                        // Point[] myArray =
-                        // {
-                        //     new Point(20, 20),
-                        //     new Point(120, 20),
-                        //     new Point(120, 120),
-                        //     new Point(20, 120),
-                        //     new Point(20, 20)
-                        // };
-                        // var myMatrix = new System.Drawing.Drawing2D.Matrix();
-                        // myMatrix.Rotate(90);
-                        // myMatrix.TransformPoints(myArray);
-                        // foreach (var p in myArray)
-                        //     System.Console.WriteLine(p);
-
                         var mx2 = new System.Drawing.Drawing2D.Matrix(rwo.M11, rwo.M12, rwo.M21, rwo.M22, wo.RotationPoint.X, wo.RotationPoint.Y);
-                        // mx.Rotate(Convert.ToSingle(wo.Rotation));
                         var mx = new System.Drawing.Drawing2D.Matrix();
                         mx.RotateAt(Convert.ToSingle(wo.Rotation), new PointF(wo.RotationPoint.X, wo.RotationPoint.Y));
-                        // mx.RotateAt(45, new PointF(wo.RotationPoint.X, wo.RotationPoint.Y));
                         mx.Translate(wo.RotationPoint.X, wo.RotationPoint.Y);
                         PointF[] gpa = new PointF[geometry.Points.Count];
 
@@ -135,55 +113,14 @@
                         // var gpa = ToDotNetPoints(geometry.Points, rwo.X, rwo.Y).ToArray();
                         // mx.TransformPoints(gpa);
                         mx2.TransformPoints(gpa2);
-                        System.Console.WriteLine($"--before W: {geometry.Bounds.Width}, H: {geometry.Bounds.Height}");
                         geometry.Points = this.ToAvaloniaPoints(gpa2);
                         // geometry.Points = this.ToAvaloniaPoints(gpa);
-                        System.Console.WriteLine($"--after W: {geometry.Bounds.Width}, H: {geometry.Bounds.Height}");
                         // geometry.Transform = new RotateTransform(wo.Rotation);
                     }
                 }
 
                 this.AddObject(wo);
             }
-        }
-
-        public void RotateRoads()
-        {
-            var worldObjectPolygons = this.ReadPolygonJSON();
-            System.Console.WriteLine("-----BEFORE-----");
-            System.Console.WriteLine(string.Join(",", worldObjectPolygons["road_2lane_straight"][0].Points));
-            System.Console.WriteLine("-----BEFORE-----");
-            foreach (var wo in this.WorldObjects)
-            {
-                foreach (var geometry in wo.Geometries)
-                {
-                    // foreach (var p in geometry.Points)
-                    //     System.Console.WriteLine(p);
-                    var rotate = new RotateTransform(wo.Rotation);
-                    var translate = new TranslateTransform(-wo.RotationPoint.X, -wo.RotationPoint.Y);
-                    var transformGroup = new TransformGroup();
-                    transformGroup.Children.Add(rotate);
-                    transformGroup.Children.Add(translate);
-                    // geometry.Transform = transformGroup;
-
-                    // foreach (var p in geometry.Points)
-                    //     System.Console.WriteLine(p);
-
-                    var mx = new System.Drawing.Drawing2D.Matrix();
-                    mx.RotateAt(Convert.ToSingle(wo.Rotation), new PointF(wo.RotationPoint.X, wo.RotationPoint.Y));
-                    mx.Translate(-wo.RotationPoint.X, -wo.RotationPoint.Y);
-                    // var gpa = this.ToDotNetPoints(geometry.Points).ToArray();
-                    PointF[] gpa = new PointF[geometry.Points.Count];
-
-                    this.ToDotNetPoints(geometry.Points).CopyTo(gpa);
-                    mx.TransformPoints(gpa);
-                    geometry.Points = this.ToAvaloniaPoints(gpa);
-                    // geometry.Transform = new RotateTransform(wo.Rotation);
-                }
-            }
-            System.Console.WriteLine("-----AFTER-----");
-            System.Console.WriteLine(string.Join(",", worldObjectPolygons["road_2lane_straight"][0].Points));
-            System.Console.WriteLine("-----AFTER-----");
         }
 
         private List<System.Drawing.PointF> ToDotNetPoints(Avalonia.Points points)
