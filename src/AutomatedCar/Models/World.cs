@@ -85,7 +85,12 @@
 
                 if (worldObjectPolygons.ContainsKey(rwo.Type))
                 {
-                    wo.Geometries = new ObservableCollection<PolylineGeometry>(worldObjectPolygons[rwo.Type]);
+                    // fucking deep copy
+                    foreach (var g in worldObjectPolygons[rwo.Type])
+                    {
+                        wo.Geometries.Add(new PolylineGeometry(g.Points, false));
+                        wo.RawGeometries.Add(new PolylineGeometry(g.Points, false));
+                    }
                 }
 
                 this.AddObject(wo);
