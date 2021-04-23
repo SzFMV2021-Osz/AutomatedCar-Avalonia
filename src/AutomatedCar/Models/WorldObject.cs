@@ -14,15 +14,14 @@ namespace AutomatedCar.Models
 
         private double rotation;
 
-        private bool collideable;
-
-        public WorldObject(int x, int y, string filename, int zindex = 1, bool collideable = false)
+        public WorldObject(int x, int y, string filename, int zindex = 1, bool collideable = false, WorldObjectType worldObjectType = WorldObjectType.Other)
         {
             this.X = x;
             this.Y = y;
             this.Filename = filename;
             this.ZIndex = zindex;
-            this.collideable = collideable;
+            this.Collideable = collideable;
+            this.WorldObjectType = worldObjectType;
         }
 
         public int ZIndex { get; set; }
@@ -53,8 +52,12 @@ namespace AutomatedCar.Models
 
         public ObservableCollection<PolylineGeometry> Geometries { get; set; }
 
+        public ObservableCollection<PolylineGeometry> RawGeometries { get; set; }
+
         public string Filename { get; set; }
 
         public bool Collideable { get; set; }
+
+        public WorldObjectType WorldObjectType { get; set; }
     }
 }
