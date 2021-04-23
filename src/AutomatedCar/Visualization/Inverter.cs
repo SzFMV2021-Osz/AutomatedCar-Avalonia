@@ -10,7 +10,14 @@ namespace AutomatedCar.Visualization
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (int)value * -1;
+            if (value is double)
+            {
+                return (double)value * -1;
+            }
+            else
+            {
+                return (int)value * -1;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
