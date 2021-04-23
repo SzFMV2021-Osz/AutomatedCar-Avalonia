@@ -50,9 +50,9 @@
 
         public void PopulateFromJSON(string filename)
         {
-            var rotationPoints = ReadRotationsPoints();
-            var renderTransformOrigins = CalculateRenderTransformOrigins();
-            var worldObjectPolygons = ReadPolygonJSON();
+            var rotationPoints = this.ReadRotationsPoints();
+            var renderTransformOrigins = this.CalculateRenderTransformOrigins();
+            var worldObjectPolygons = this.ReadPolygonJSON();
 
             StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream(filename));
@@ -62,7 +62,7 @@
             this.Width = rawWorld.Width;
             foreach (RawWorldObject rwo in rawWorld.Objects)
             {
-                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", DetermineZIndex(rwo.Type), DetermineCollidablity(rwo.Type));
+                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", this.DetermineZIndex(rwo.Type), this.DetermineCollidablity(rwo.Type), this.DetermineType(rwo.Type));
                 (int x, int y) rp = (0, 0);
 
                 if (rotationPoints.ContainsKey(rwo.Type))
@@ -81,18 +81,51 @@
 
                 wo.RenderTransformOrigin = rto;
 
-                wo.Rotation = RotationMatrixToDegree(rwo.M11, rwo.M12);
+                wo.Rotation = this.RotationMatrixToDegree(rwo.M11, rwo.M12);
 
                 if (worldObjectPolygons.ContainsKey(rwo.Type))
                 {
-                    wo.Geometries = worldObjectPolygons[rwo.Type];
+                    wo.Geometries = new ObservableCollection<PolylineGeometry>(worldObjectPolygons[rwo.Type]);
                 }
 
-                AddObject(wo);
+                this.AddObject(wo);
             }
         }
 
-        public Dictionary<string, (int x, int y)> ReadRotationsPoints(string filename = "reference_points.json")
+        private List<System.Drawing.PointF> ToDotNetPoints(Avalonia.Points points)
+        {
+            var result = new List<System.Drawing.PointF>();
+            foreach (var p in points)
+            {
+                result.Add(new PointF(Convert.ToSingle(p.X), Convert.ToSingle(p.Y)));
+            }
+
+            return result;
+        }
+
+        private List<System.Drawing.PointF> ToDotNetPoints(Avalonia.Points points, int x, int y)
+        {
+            var result = new List<System.Drawing.PointF>();
+            foreach (var p in points)
+            {
+                result.Add(new PointF(Convert.ToSingle(p.X) + x, Convert.ToSingle(p.Y) + y));
+            }
+
+            return result;
+        }
+
+        private Avalonia.Points ToAvaloniaPoints(IEnumerable<PointF> points)
+        {
+            var result = new Avalonia.Points();
+            foreach (var p in points)
+            {
+                result.Add(new Avalonia.Point(p.X, p.Y));
+            }
+
+            return result;
+        }
+
+        private Dictionary<string, (int x, int y)> ReadRotationsPoints(string filename = "reference_points.json")
         {
             StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream($"AutomatedCar.Assets.{filename}"));
@@ -107,20 +140,21 @@
             return result;
         }
 
-        public Dictionary<string, ObservableCollection<PolylineGeometry>> ReadPolygonJSON(string filename = "worldobject_polygons.json")
+        private Dictionary<string, List<PolylineGeometry>> ReadPolygonJSON(string filename = "worldobject_polygons.json")
         {
             // TODO: Avalonia specific
             StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream($"AutomatedCar.Assets.{filename}"));
 
             var objects = JsonConvert.DeserializeObject<Dictionary<string, List<RawWorldObjectPolygon>>>(reader.ReadToEnd())["objects"];
-            var result = new Dictionary<string, ObservableCollection<PolylineGeometry>>();
+            var result = new Dictionary<string, List<PolylineGeometry>>();
             foreach (RawWorldObjectPolygon rwop in objects)
             {
-                var polygonList = new ObservableCollection<PolylineGeometry>();
+                var polygonList = new List<PolylineGeometry>();
                 foreach (RawPolygon rp in rwop.Polys)
                 {
-                    var points = new List<Avalonia.Point>();
+                    var points = new Avalonia.Points();
+
                     foreach (var p in rp.Points)
                     {
                         points.Add(new Avalonia.Point(p[0], p[1]));
@@ -136,7 +170,7 @@
         }
 
         // It accepts different string values than WPF. For .5,.5 you actually need 50%,50%. .5,.5 is treated as "half of the logical pixel" in both directions instead of "half of the control"
-        public Dictionary<string, string> CalculateRenderTransformOrigins(string filename = "reference_points.json")
+        private Dictionary<string, string> CalculateRenderTransformOrigins(string filename = "reference_points.json")
         {
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
@@ -178,8 +212,10 @@
             {
                 result = 5;
             }
+
             return result;
         }
+
         private bool DetermineCollidablity(string type)
         {
             List<string> collideables = new List<string> { "boundary", "garage", "parking_bollard",
@@ -189,6 +225,44 @@
             {
                 result = true;
             }
+
+            return result;
+        }
+
+        private WorldObjectType DetermineType(string type)
+        {
+            WorldObjectType result = WorldObjectType.Other;
+            switch (type)
+            {
+                case "boundary":
+                    result = WorldObjectType.Boundary;
+                    break;
+                case "garage":
+                    result = WorldObjectType.Building;
+                    break;
+                case string s when s.StartsWith("car_"):
+                    result = WorldObjectType.Car;
+                    break;
+                case "crosswalk":
+                    result = WorldObjectType.Crosswalk;
+                    break;
+                case string s when s.StartsWith("parking_space_"):
+                    result = WorldObjectType.ParkingSpace;
+                    break;
+                case string s when s.StartsWith("road_"):
+                    result = WorldObjectType.Road;
+                    break;
+                case string s when s.StartsWith("roadsign_"):
+                    result = WorldObjectType.RoadSgin;
+                    break;
+                case "tree":
+                    result = WorldObjectType.Tree;
+                    break;
+                default:
+                    result = WorldObjectType.Other;
+                    break;
+            }
+
             return result;
         }
 
@@ -205,10 +279,7 @@
 
             // geom.PathPoints
 
-
-
             return geom;
         }
     }
-
 }
