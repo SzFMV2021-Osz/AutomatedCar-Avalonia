@@ -101,14 +101,12 @@
                                     <TranslateTransform X="{Binding RotationPoint.X, Converter={x:Static visualization:Inverter.Instance}}" Y="{Binding RotationPoint.Y, Converter={x:Static visualization:Inverter.Instance}}"/>
                                 </TransformGroup>
                             </Canvas.RenderTransform>
-                        <!-- <Canvas> -->
 
                             <Image
                                 Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
                                 Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
                                 Source="{Binding Filename, Converter={x:Static visualization:WorldObjectTransformer.Instance}}"
                                 RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
-                                <!-- IsVisible="True" Opacity="0.5"> -->
                                 <!-- <Image.RenderTransform >
                                     <TransformGroup>
                                         <RotateTransform Angle="{Binding Rotation}"/>
@@ -122,19 +120,9 @@
                                 Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
                                 IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 >
-                                <!-- Background="yellow" Opacity="0.2" -->
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <Canvas/>
-                                        <!-- <Canvas RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
-                                            <Canvas.RenderTransform>
-                                                <TransformGroup>
-                                                    <RotateTransform Angle="{Binding Tag.Rotation, RelativeSource={RelativeSource AncestorType=ItemsControl}}}"/>
-                                                    <TranslateTransform X="{Binding Tag.RotationPoint.X, Converter={x:Static visualization:Inverter.Instance}}"
-                                                                        Y="{Binding Tag.RotationPoint.Y, Converter={x:Static visualization:Inverter.Instance}}"/>
-                                                </TransformGroup>
-                                            </Canvas.RenderTransform>
-                                        </Canvas> -->
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
                                 <!-- <ItemsControl.RenderTransform >
