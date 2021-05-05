@@ -153,7 +153,7 @@
                             <ItemsControl Items="{Binding Geometries, Mode=OneWay}" Tag="{Binding . }"
                                 Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}"
                                 Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}"
-                                IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                IsVisible="{Binding Path=DataContext.DebugStatus.Rotate, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 Background="orange" Opacity="0.50"
                                 >
                                 <ItemsControl.ItemsPanel>

@@ -68,6 +68,11 @@ namespace AutomatedCar
             {
                 this.world.DebugStatus.Ultrasonic = !this.world.DebugStatus.Ultrasonic;
             }
+
+            if (Keyboard.IsKeyDown(Key.D5))
+            {
+                this.world.DebugStatus.Rotate = !this.world.DebugStatus.Rotate;
+            }
         }
     }
 }
