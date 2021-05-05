@@ -21,7 +21,7 @@
         </Style>
     </UserControl.Styles>
 
-    <ScrollViewer Width="960" Height="720" HorizontalAlignment="Left" VerticalAlignment="Top" Name="scrollViewer"
+    <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Name="scrollViewer"
         HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <ItemsControl Name="CourseDisplay"
             Items="{Binding WorldObjects, Mode=OneWay}"
