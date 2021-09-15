@@ -15,10 +15,13 @@ namespace AutomatedCar.Models
             this.virtualFunctionBus = new VirtualFunctionBus();
             this.dummySensor = new DummySensor(this.virtualFunctionBus);
             this.radarSensor = new RadarSensor(this);
+            this.ZIndex = 10;
         }
 
         public VirtualFunctionBus VirtualFunctionBus { get => this.virtualFunctionBus; }
 
+        public int Revolution { get; set; }
+        public int Velocity { get; set; }
         public Geometry Geometry { get; set; }
 
         public RadarSensor RadarSensor { get => this.radarSensor; }
