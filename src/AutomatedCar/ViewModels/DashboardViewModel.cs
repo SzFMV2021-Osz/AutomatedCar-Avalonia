@@ -1,21 +1,22 @@
 namespace AutomatedCar.ViewModels
 {
     using AutomatedCar.Models;
-    using ReactiveUI;
 
     public class DashboardViewModel : ViewModelBase
     {
-        private AutomatedCar controlledCar;
-
-        public DashboardViewModel(Models.AutomatedCar controlledCar)
+        private World world;
+        public DashboardViewModel(World world)
         {
-            this.ControlledCar = controlledCar;
+            this.world = world;
         }
 
         public Models.AutomatedCar ControlledCar
         {
-            get => this.controlledCar;
-            private set => this.RaiseAndSetIfChanged(ref this.controlledCar, value);
+            get => this.world.ControlledCar;
+        }
+        public World World
+        {
+            get => this.world;
         }
     }
 }

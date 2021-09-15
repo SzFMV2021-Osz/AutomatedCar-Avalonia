@@ -18,7 +18,7 @@
         public MainWindowViewModel(World world)
         {
             this.CourseDisplay = new CourseDisplayViewModel(world);
-            this.Dashboard = new DashboardViewModel(world.ControlledCar);
+            this.Dashboard = new DashboardViewModel(world);
             this.World = world;
         }
 
