@@ -19,7 +19,8 @@
         // private static readonly System.Lazy<World> lazySingleton = new System.Lazy<World> (() => new World());
         // public static World Instance { get { return lazySingleton.Value; } }
 
-        private AutomatedCar controlledCar;
+        private int controlledCarPointer = 0;
+        private ObservableCollection<AutomatedCar> controlledCars = new ();
 
         public static World Instance { get; } = new World();
 
@@ -27,8 +28,46 @@
 
         public AutomatedCar ControlledCar
         {
-            get => this.controlledCar;
-            set => this.RaiseAndSetIfChanged(ref this.controlledCar, value);
+            get => this.controlledCars[this.controlledCarPointer];
+
+        }
+        public int ControlledCarPointer
+        {
+            get => this.controlledCarPointer;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref this.controlledCarPointer, value);
+                this.RaisePropertyChanged("ControlledCar");
+            }
+        }
+        public void AddControlledCar(AutomatedCar controlledCar)
+        {
+            this.controlledCars.Add(controlledCar);
+            this.AddObject(controlledCar);
+        }
+        public void NextControlledCar()
+        {
+            if (this.controlledCarPointer < this.controlledCars.Count - 1)
+            {
+                this.ControlledCarPointer += 1;
+            }
+            else
+            {
+                this.ControlledCarPointer = 0;
+            }
+            this.RaisePropertyChanged("ControlledCar");
+        }
+        public void PrevControlledCar()
+        {
+            if (this.controlledCarPointer > 0)
+            {
+                this.ControlledCarPointer -= 1;
+            }
+            else
+            {
+               this.ControlledCarPointer = this.controlledCars.Count - 1;
+            }
+            this.RaisePropertyChanged("ControlledCar");
         }
 
         public int Width { get; set; }
@@ -242,6 +281,10 @@
             if (type == "crosswalk")
             {
                 result = 5;
+            }
+            if (type == "tree")
+            {
+                result = 20;
             }
 
             return result;
