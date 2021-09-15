@@ -1,6 +1,7 @@
 namespace AutomatedCar.Views
 {
     using Avalonia.Controls;
+    using Avalonia.Input;
     using Avalonia.Markup.Xaml;
 
     public class CourseDisplayView : UserControl
@@ -9,9 +10,12 @@ namespace AutomatedCar.Views
         {
             this.InitializeComponent();
             // In Avalonia, this is required to catch a XAML object
-            var scrollViewer = this.FindControl<ScrollViewer>("scrollViewer");
-            scrollViewer.ScrollChanged += OnScrollViewerScrollChanged;
+            // var scrollViewer = this.FindControl<ScrollViewer>("scrollViewer");
+            // var scrollViewer = this.Get<ScrollViewer>("scrollViewer");
+            // scrollViewer.ScrollChanged += OnScrollViewerScrollChanged;
             // scrollViewer.ScrollToHorizontalOffset is not implemented in Avalonia
+
+            // scrollViewer.Offset = new Avalonia.Vector(2500, 1000);
         }
 
         private void InitializeComponent()
@@ -23,5 +27,11 @@ namespace AutomatedCar.Views
         {
             // System.Console.WriteLine(e.OffsetDelta);
         }
+
+        // protected override void OnKeyDown(KeyEventArgs e)
+        // {
+        //     base.OnKeyDown(e);
+        //     System.Console.WriteLine(this.Get<ScrollViewer>("scrollViewer").Width);
+        // }
     }
 }
