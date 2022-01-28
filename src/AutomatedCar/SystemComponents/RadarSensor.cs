@@ -28,7 +28,7 @@ namespace AutomatedCar.SystemComponents
         {
             foreach (var wo in World.Instance.WorldObjects)
             {
-                if (wo.Filename != "circle.png" && wo.WorldObjectType != WorldObjectType.Tree && wo.WorldObjectType != WorldObjectType.RoadSgin)
+                if (wo.Filename != "circle.png" && wo.WorldObjectType != WorldObjectType.Tree && wo.WorldObjectType != WorldObjectType.RoadSign)
                 {
                     continue;
                 }

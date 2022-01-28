@@ -327,7 +327,7 @@
                     result = WorldObjectType.Road;
                     break;
                 case string s when s.StartsWith("roadsign_"):
-                    result = WorldObjectType.RoadSgin;
+                    result = WorldObjectType.RoadSign;
                     break;
                 case "tree":
                     result = WorldObjectType.Tree;
