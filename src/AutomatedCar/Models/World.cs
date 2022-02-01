@@ -97,11 +97,13 @@
                     .GetManifestResourceStream(filename));
 
             RawWorld rawWorld = JsonConvert.DeserializeObject<RawWorld>(reader.ReadToEnd());
+            
             this.Height = rawWorld.Height;
             this.Width = rawWorld.Width;
+
             foreach (RawWorldObject rwo in rawWorld.Objects)
             {
-                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png", this.DetermineZIndex(rwo.Type), this.DetermineCollidablity(rwo.Type), this.DetermineType(rwo.Type));
+                var wo = new WorldObject(rwo.X, rwo.Y, rwo.Type + ".png");
                 (int x, int y) rp = (0, 0);
 
                 if (rotationPoints.ContainsKey(rwo.Type))
@@ -124,7 +126,7 @@
 
                 if (worldObjectPolygons.ContainsKey(rwo.Type))
                 {
-                    // fucking deep copy
+                    // deep copy
                     foreach (var g in worldObjectPolygons[rwo.Type])
                     {
                         wo.Geometries.Add(new PolylineGeometry(g.Points, false));
@@ -270,71 +272,6 @@
             if (m12 < 0)
             {
                 result = 360 - result;
-            }
-
-            return result;
-        }
-
-        private int DetermineZIndex(string type)
-        {
-            int result = 1;
-            if (type == "crosswalk")
-            {
-                result = 5;
-            }
-            if (type == "tree")
-            {
-                result = 20;
-            }
-
-            return result;
-        }
-
-        private bool DetermineCollidablity(string type)
-        {
-            List<string> collideables = new List<string> { "boundary", "garage", "parking_bollard",
-                "roadsign_parking_right", "roadsign_priority_stop", "roadsign_speed_40", "roadsign_speed_50", "roadsign_speed_60", "tree" };
-            bool result = false;
-            if (collideables.Contains(type))
-            {
-                result = true;
-            }
-
-            return result;
-        }
-
-        private WorldObjectType DetermineType(string type)
-        {
-            WorldObjectType result = WorldObjectType.Other;
-            switch (type)
-            {
-                case "boundary":
-                    result = WorldObjectType.Boundary;
-                    break;
-                case "garage":
-                    result = WorldObjectType.Building;
-                    break;
-                case string s when s.StartsWith("car_"):
-                    result = WorldObjectType.Car;
-                    break;
-                case "crosswalk":
-                    result = WorldObjectType.Crosswalk;
-                    break;
-                case string s when s.StartsWith("parking_space_"):
-                    result = WorldObjectType.ParkingSpace;
-                    break;
-                case string s when s.StartsWith("road_"):
-                    result = WorldObjectType.Road;
-                    break;
-                case string s when s.StartsWith("roadsign_"):
-                    result = WorldObjectType.RoadSign;
-                    break;
-                case "tree":
-                    result = WorldObjectType.Tree;
-                    break;
-                default:
-                    result = WorldObjectType.Other;
-                    break;
             }
 
             return result;
