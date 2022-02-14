@@ -7,19 +7,19 @@
     {
         private ViewModelBase dashboard;
         private ViewModelBase courseDisplay;
-        private World world;
+        // private World world;
 
-        public World World
-        {
-            get => this.world;
-            private set => this.RaiseAndSetIfChanged(ref this.world, value);
-        }
+        // public World World
+        // {
+        //     get => this.world;
+        //     private set => this.RaiseAndSetIfChanged(ref this.world, value);
+        // }
 
         public MainWindowViewModel(World world)
         {
             this.CourseDisplay = new CourseDisplayViewModel(world);
             this.Dashboard = new DashboardViewModel(world);
-            this.World = world;
+            // this.World = world;
         }
 
         public ViewModelBase CourseDisplay

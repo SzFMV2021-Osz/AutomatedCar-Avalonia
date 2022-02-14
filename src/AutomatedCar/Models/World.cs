@@ -25,6 +25,8 @@
         public static World Instance { get; } = new World();
 
         public ObservableCollection<WorldObject> WorldObjects { get; } = new ObservableCollection<WorldObject>();
+        
+        // public IEnumerable<WorldObject> WorldObjects { get; } = new List<WorldObject>();
 
         public AutomatedCar ControlledCar
         {

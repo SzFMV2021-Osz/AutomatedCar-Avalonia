@@ -7,7 +7,7 @@
              xmlns:models="clr-namespace:AutomatedCar.Models;assembly=AutomatedCar"
              xmlns:local="clr-namespace:AutomatedCar;assembly=AutomatedCar"
              xmlns:visualization="clr-namespace:AutomatedCar.Visualization;assembly=AutomatedCar"
-             DataContext="{Binding World}"
+             DataContext="{Binding CourseDisplay}"
              >
 
     <UserControl.Styles>
