@@ -1,12 +1,20 @@
 namespace AutomatedCar.Models
 {
+    using Avalonia.Media;
     using System.Collections.ObjectModel;
     using System.Drawing;
-    using Avalonia.Media;
-    using ReactiveUI;
 
-    public class WorldObject : ReactiveObject
+    public class PropertyChangedEventArgs : System.EventArgs
     {
+        public string PropertyName { get; set; }
+    }
+
+    public class WorldObject
+    {
+        public delegate void PropertyChangedEventHandler(object sender, PropertyChangedEventArgs args);
+
+        public event PropertyChangedEventHandler PropertyChangedEvent;
+
         private int x;
         private int y;
 
@@ -27,20 +35,34 @@ namespace AutomatedCar.Models
         public double Rotation
         {
             get => this.rotation;
-            set => this.RaiseAndSetIfChanged(ref this.rotation, value % 360);
+            //set => this.RaiseAndSetIfChanged(ref this.rotation, value % 360);
+            set
+            {
+                this.rotation = value % 360;
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.Rotation) });
+            }
         }
 
         public int X
         {
             get => this.x;
             //set => this.RaiseAndSetIfChanged(ref this.x, value);
-            set => this.x = value;
+            set
+            {
+                this.x = value;
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.X) });
+            }
         }
 
         public int Y
         {
             get => this.y;
-            set => this.RaiseAndSetIfChanged(ref this.y, value);
+            //set => this.RaiseAndSetIfChanged(ref this.y, value);
+            set
+            {
+                this.y = value;
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.Y) });
+            }
         }
 
         public Point RotationPoint { get; set; }

@@ -5,6 +5,7 @@
              x:Class="AutomatedCar.Views.CourseDisplayView"
              Width="960" Height="720"
              xmlns:models="clr-namespace:AutomatedCar.Models;assembly=AutomatedCar"
+             xmlns:viewmodels="clr-namespace:AutomatedCar.ViewModels;assembly=AutomatedCar"
              xmlns:local="clr-namespace:AutomatedCar;assembly=AutomatedCar"
              xmlns:visualization="clr-namespace:AutomatedCar.Visualization;assembly=AutomatedCar"
              DataContext="{Binding CourseDisplay}"
@@ -91,7 +92,7 @@
                         </ItemsControl>
                     </Canvas>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type models:WorldObject}">
+                <DataTemplate DataType="{x:Type viewmodels:WorldObjectViewModel}">
                     <Canvas>
                     <!-- use this when the polygons are not rotated in the model and both the image and the polygon should be rotated -->
                         <Canvas RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
