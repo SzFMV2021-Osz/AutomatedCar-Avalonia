@@ -13,26 +13,21 @@
     using Helpers;
     using Visualization;
     using Avalonia.Media;
+    using System.Linq;
 
     public class World : ReactiveObject
     {
-        // private static readonly System.Lazy<World> lazySingleton = new System.Lazy<World> (() => new World());
-        // public static World Instance { get { return lazySingleton.Value; } }
-
         private int controlledCarPointer = 0;
         private ObservableCollection<AutomatedCar> controlledCars = new ();
 
         public static World Instance { get; } = new World();
-
-        public ObservableCollection<WorldObject> WorldObjects { get; } = new ObservableCollection<WorldObject>();
-        
-        // public IEnumerable<WorldObject> WorldObjects { get; } = new List<WorldObject>();
+        public List<WorldObject> WorldObjects { get; set; } = new List<WorldObject>();
 
         public AutomatedCar ControlledCar
         {
             get => this.controlledCars[this.controlledCarPointer];
-
         }
+
         public int ControlledCarPointer
         {
             get => this.controlledCarPointer;

@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using AutomatedCar.Models;
+using System.Linq;
 
 using ReactiveUI;
 
@@ -11,20 +12,15 @@ namespace AutomatedCar.ViewModels
 
     public class CourseDisplayViewModel : ViewModelBase
     {
-        // public readonly World world;
         private ObservableCollection<AutomatedCar> controlledCars = new();
         public ObservableCollection<WorldObject> WorldObjects { get; } = new ObservableCollection<WorldObject>();
+
         public CourseDisplayViewModel(World world)
         {
-            WorldObjects = world.WorldObjects;
+            this.WorldObjects = new ObservableCollection<WorldObject>(world.WorldObjects);
             Width = world.Width;
             Height = world.Height;
-
-            // this.World = world;
         }
-
-        // public World World { get; private set; }
-
 
         public void NextControlledCar()
         {
