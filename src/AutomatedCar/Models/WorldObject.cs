@@ -33,7 +33,8 @@ namespace AutomatedCar.Models
         public int X
         {
             get => this.x;
-            set => this.RaiseAndSetIfChanged(ref this.x, value);
+            //set => this.RaiseAndSetIfChanged(ref this.x, value);
+            set => this.x = value;
         }
 
         public int Y
