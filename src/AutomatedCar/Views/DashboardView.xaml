@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:models="clr-namespace:AutomatedCar.Models"
+             xmlns:viewmodels="clr-namespace:AutomatedCar.ViewModels;assembly=AutomatedCar"
              Width="320" Height="720"
              x:Class="AutomatedCar.Views.DashboardView"
              DataContext="{Binding Dashboard}"
@@ -24,7 +25,7 @@
         <Border Padding="2 0 0 0" >
             <ContentControl Name="Dashboard" Content="{Binding ControlledCar, Mode=OneWay}" >
                 <ContentControl.ContentTemplate>
-                    <DataTemplate DataType="{x:Type models:AutomatedCar}">
+                    <DataTemplate DataType="{x:Type viewmodels:CarViewModel}">
                         <StackPanel>
                             <TextBlock Text="F1: Help"/>
                             <Grid ColumnDefinitions="2*,2*" RowDefinitions="50,15">
