@@ -15,10 +15,10 @@
     using Avalonia.Media;
     using System.Linq;
 
-    public class World : ReactiveObject
+    public class World
     {
         private int controlledCarPointer = 0;
-        private ObservableCollection<AutomatedCar> controlledCars = new ();
+        private List<AutomatedCar> controlledCars = new ();
 
         public static World Instance { get; } = new World();
         public List<WorldObject> WorldObjects { get; set; } = new List<WorldObject>();
@@ -33,8 +33,9 @@
             get => this.controlledCarPointer;
             set
             {
-                this.RaiseAndSetIfChanged(ref this.controlledCarPointer, value);
-                this.RaisePropertyChanged("ControlledCar");
+                this.controlledCarPointer = value;
+                // this.RaiseAndSetIfChanged(ref this.controlledCarPointer, value);
+                // this.RaisePropertyChanged("ControlledCar");
             }
         }
         public void AddControlledCar(AutomatedCar controlledCar)
@@ -52,7 +53,6 @@
             {
                 this.ControlledCarPointer = 0;
             }
-            this.RaisePropertyChanged("ControlledCar");
         }
         public void PrevControlledCar()
         {
@@ -64,7 +64,6 @@
             {
                this.ControlledCarPointer = this.controlledCars.Count - 1;
             }
-            this.RaisePropertyChanged("ControlledCar");
         }
 
         public int Width { get; set; }
@@ -76,7 +75,7 @@
         public DebugStatus DebugStatus
         {
             get => this.debugStatus;
-            set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
+            //set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
         }
 
         public void AddObject(WorldObject worldObject)

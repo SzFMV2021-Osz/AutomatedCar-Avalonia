@@ -22,7 +22,7 @@
 
     <DockPanel>
         <Border Padding="2 0 0 0" >
-            <ContentControl Name="Dashboard" Content="{Binding World.ControlledCar, Mode=OneWay}" >
+            <ContentControl Name="Dashboard" Content="{Binding ControlledCar, Mode=OneWay}" >
                 <ContentControl.ContentTemplate>
                     <DataTemplate DataType="{x:Type models:AutomatedCar}">
                         <StackPanel>

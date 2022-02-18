@@ -13,6 +13,7 @@ namespace AutomatedCar.ViewModels
     public class CourseDisplayViewModel : ViewModelBase
     {
         private ObservableCollection<AutomatedCar> controlledCars = new();
+        public AutomatedCar ControlledCar { get; set; }
         public ObservableCollection<WorldObjectViewModel> WorldObjects { get; } = new ObservableCollection<WorldObjectViewModel>();
 
         public CourseDisplayViewModel(World world)
@@ -20,17 +21,7 @@ namespace AutomatedCar.ViewModels
             this.WorldObjects = new ObservableCollection<WorldObjectViewModel>(world.WorldObjects.Select(wo => new WorldObjectViewModel(wo)));
             Width = world.Width;
             Height = world.Height;
-        }
-
-        public void NextControlledCar()
-        {
-            // this.controlledCars = world.getNextControlledCar();
-            this.RaisePropertyChanged("ControlledCar");
-        }
-        public void PrevControlledCar()
-        {
-            // this.controlledCars = world.getPreviousControlledCar();
-            this.RaisePropertyChanged("ControlledCar");
+            ControlledCar = world.ControlledCar;
         }
 
         public int Width { get; set; }
@@ -43,6 +34,20 @@ namespace AutomatedCar.ViewModels
         {
             get => this.debugStatus;
             set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
+        }
+
+        public void NextControlledCar()
+        {
+            World.Instance.NextControlledCar();
+        }
+        public void PrevControlledCar()
+        {
+            World.Instance.PrevControlledCar();
+        }
+
+        public void KeyUp()
+        {
+            World.Instance.ControlledCar.Y -= 5;
         }
     }
 }

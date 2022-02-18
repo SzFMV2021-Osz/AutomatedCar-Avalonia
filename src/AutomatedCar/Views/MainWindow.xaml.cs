@@ -2,6 +2,7 @@ using System;
 namespace AutomatedCar.Views
 {
     using AutomatedCar.Models;
+    using AutomatedCar.ViewModels;
     using Avalonia.Controls;
     using Avalonia.Input;
     using Avalonia.Markup.Xaml;
@@ -21,7 +22,8 @@ namespace AutomatedCar.Views
             base.OnKeyDown(e);
             if (Keyboard.IsKeyDown(Key.Up))
             {
-                World.Instance.ControlledCar.Y -= 5;
+                // World.Instance.ControlledCar.Y -= 5;
+                ((MainWindowViewModel)DataContext).CourseDisplay.KeyUp();
             }
 
             if (Keyboard.IsKeyDown(Key.Down))
@@ -81,12 +83,12 @@ namespace AutomatedCar.Views
             }
             if (Keyboard.IsKeyDown(Key.F5))
             {
-                World.Instance.NextControlledCar();
+                ((MainWindowViewModel)DataContext).CourseDisplay.NextControlledCar();
                 Keyboard.Keys.Remove(Key.F5);
             }
             if (Keyboard.IsKeyDown(Key.F6))
             {
-                World.Instance.PrevControlledCar();
+                ((MainWindowViewModel)DataContext).CourseDisplay.PrevControlledCar();
                 Keyboard.Keys.Remove(Key.F5);
             }
 

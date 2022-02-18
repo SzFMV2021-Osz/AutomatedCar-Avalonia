@@ -4,19 +4,10 @@ namespace AutomatedCar.ViewModels
 
     public class DashboardViewModel : ViewModelBase
     {
-        private World world;
-        public DashboardViewModel(World world)
+        public AutomatedCar ControlledCar { get; set; }
+        public DashboardViewModel(AutomatedCar controlledCar)
         {
-            this.world = world;
-        }
-
-        public Models.AutomatedCar ControlledCar
-        {
-            get => this.world.ControlledCar;
-        }
-        public World World
-        {
-            get => this.world;
+            this.ControlledCar = controlledCar;
         }
     }
 }
