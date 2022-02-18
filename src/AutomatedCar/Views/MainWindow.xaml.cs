@@ -83,12 +83,12 @@ namespace AutomatedCar.Views
             }
             if (Keyboard.IsKeyDown(Key.F5))
             {
-                ((MainWindowViewModel)DataContext).CourseDisplay.NextControlledCar();
+                ((MainWindowViewModel)DataContext).NextControlledCar();
                 Keyboard.Keys.Remove(Key.F5);
             }
             if (Keyboard.IsKeyDown(Key.F6))
             {
-                ((MainWindowViewModel)DataContext).CourseDisplay.PrevControlledCar();
+                ((MainWindowViewModel)DataContext).PrevControlledCar();
                 Keyboard.Keys.Remove(Key.F5);
             }
 

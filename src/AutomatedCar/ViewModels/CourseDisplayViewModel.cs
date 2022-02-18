@@ -13,10 +13,12 @@ namespace AutomatedCar.ViewModels
     public class CourseDisplayViewModel : ViewModelBase
     {
         public ObservableCollection<WorldObjectViewModel> WorldObjects { get; } = new ObservableCollection<WorldObjectViewModel>();
+        public ObservableCollection<CarViewModel> Cars { get; } = new ObservableCollection<CarViewModel>();
 
         public CourseDisplayViewModel(World world)
         {
             this.WorldObjects = new ObservableCollection<WorldObjectViewModel>(world.WorldObjects.Select(wo => new WorldObjectViewModel(wo)));
+            this.Cars = new ObservableCollection<CarViewModel>(world.controlledCars.Select(wo => new CarViewModel(wo)));
             this.Width = world.Width;
             this.Height = world.Height;
         }
@@ -31,16 +33,6 @@ namespace AutomatedCar.ViewModels
         {
             get => this.debugStatus;
             set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
-        }
-
-        public void NextControlledCar()
-        {
-            World.Instance.NextControlledCar();
-
-        }
-        public void PrevControlledCar()
-        {
-            World.Instance.PrevControlledCar();
         }
 
         public void KeyUp()

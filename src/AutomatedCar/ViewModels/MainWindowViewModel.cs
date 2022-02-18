@@ -25,5 +25,17 @@
             get => this.dashboard;
             private set => this.RaiseAndSetIfChanged(ref this.dashboard, value);
         }
+
+        public void NextControlledCar()
+        {
+            World.Instance.NextControlledCar();
+            this.Dashboard = new DashboardViewModel(World.Instance.ControlledCar);
+
+        }
+        public void PrevControlledCar()
+        {
+            World.Instance.PrevControlledCar();
+            this.Dashboard = new DashboardViewModel(World.Instance.ControlledCar);
+        }
     }
 }
