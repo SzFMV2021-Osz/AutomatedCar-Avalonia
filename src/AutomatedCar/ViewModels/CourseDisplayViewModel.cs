@@ -18,7 +18,7 @@ namespace AutomatedCar.ViewModels
         public CourseDisplayViewModel(World world)
         {
             this.WorldObjects = new ObservableCollection<WorldObjectViewModel>(world.WorldObjects.Select(wo => new WorldObjectViewModel(wo)));
-            this.Cars = new ObservableCollection<CarViewModel>(world.controlledCars.Select(wo => new CarViewModel(wo)));
+            this.Cars = new ObservableCollection<CarViewModel>(world.Cars.Select(wo => new CarViewModel(wo)));
             this.Width = world.Width;
             this.Height = world.Height;
         }

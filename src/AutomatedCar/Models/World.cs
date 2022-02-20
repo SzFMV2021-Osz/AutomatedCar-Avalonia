@@ -17,65 +17,55 @@
 
     public class World
     {
-        private int controlledCarPointer = 0;
-        public List<AutomatedCar> controlledCars = new ();
-
         public static World Instance { get; } = new World();
+
         public List<WorldObject> WorldObjects { get; set; } = new List<WorldObject>();
+        public List<AutomatedCar> Cars = new ();
+
+        public int Width { get; set; }
+        public int Height { get; set; }
+        
+        private int controlledCarPointer = 0;
+        private DebugStatus debugStatus = new DebugStatus();
 
         public AutomatedCar ControlledCar
         {
-            get => this.controlledCars[this.controlledCarPointer];
+            get => this.Cars[this.controlledCarPointer];
         }
 
-        public int ControlledCarPointer
+        public void AddCar(AutomatedCar car)
         {
-            get => this.controlledCarPointer;
-            set
-            {
-                this.controlledCarPointer = value;
-                // this.RaiseAndSetIfChanged(ref this.controlledCarPointer, value);
-                // this.RaisePropertyChanged("ControlledCar");
-            }
-        }
-        public void AddControlledCar(AutomatedCar controlledCar)
-        {
-            this.controlledCars.Add(controlledCar);
-            this.AddObject(controlledCar);
+            this.Cars.Add(car);
+            this.AddObject(car);
         }
         public void NextControlledCar()
         {
-            if (this.controlledCarPointer < this.controlledCars.Count - 1)
+            if (this.controlledCarPointer < this.Cars.Count - 1)
             {
-                this.ControlledCarPointer += 1;
+                this.controlledCarPointer += 1;
             }
             else
             {
-                this.ControlledCarPointer = 0;
+                this.controlledCarPointer = 0;
             }
         }
         public void PrevControlledCar()
         {
             if (this.controlledCarPointer > 0)
             {
-                this.ControlledCarPointer -= 1;
+                this.controlledCarPointer -= 1;
             }
             else
             {
-               this.ControlledCarPointer = this.controlledCars.Count - 1;
+               this.controlledCarPointer = this.Cars.Count - 1;
             }
         }
 
-        public int Width { get; set; }
 
-        public int Height { get; set; }
-
-        private DebugStatus debugStatus = new DebugStatus();
 
         public DebugStatus DebugStatus
         {
             get => this.debugStatus;
-            //set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
         }
 
         public void AddObject(WorldObject worldObject)
