@@ -1,19 +1,23 @@
 namespace AutomatedCar.Models
 {
     using Avalonia.Media;
+    using System;
     using System.Collections.ObjectModel;
     using System.Drawing;
 
-    public class PropertyChangedEventArgs : System.EventArgs
+    public class PropertyChangedEventArgs : EventArgs
     {
+        public PropertyChangedEventArgs(string propertyName)
+        {
+            PropertyName = propertyName;
+        }
+
         public string PropertyName { get; set; }
     }
 
     public class WorldObject
     {
-        public delegate void PropertyChangedEventHandler(object sender, PropertyChangedEventArgs args);
-
-        public event PropertyChangedEventHandler PropertyChangedEvent;
+        public event EventHandler<PropertyChangedEventArgs> PropertyChangedEvent;
 
         private int x;
         private int y;
@@ -35,33 +39,30 @@ namespace AutomatedCar.Models
         public double Rotation
         {
             get => this.rotation;
-            //set => this.RaiseAndSetIfChanged(ref this.rotation, value % 360);
             set
             {
                 this.rotation = value % 360;
-                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.Rotation) });
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs(nameof(this.Rotation)));
             }
         }
 
         public int X
         {
             get => this.x;
-            //set => this.RaiseAndSetIfChanged(ref this.x, value);
             set
             {
                 this.x = value;
-                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.X) });
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs(nameof(this.X)));
             }
         }
 
         public int Y
         {
             get => this.y;
-            //set => this.RaiseAndSetIfChanged(ref this.y, value);
             set
             {
                 this.y = value;
-                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs() { PropertyName = nameof(this.Y) });
+                this.PropertyChangedEvent?.Invoke(this, new PropertyChangedEventArgs(nameof(this.Y)));
             }
         }
 
