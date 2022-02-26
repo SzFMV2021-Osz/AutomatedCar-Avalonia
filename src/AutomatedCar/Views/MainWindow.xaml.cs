@@ -53,28 +53,29 @@ namespace AutomatedCar.Views
 
             if (Keyboard.IsKeyDown(Key.D1))
             {
-                World.Instance.DebugStatus.Enabled = !World.Instance.DebugStatus.Enabled;
+                //World.Instance.DebugStatus.Enabled = !World.Instance.DebugStatus.Enabled;
+                ((MainWindowViewModel)DataContext).CourseDisplay.ToggleDebug();
             }
 
             if (Keyboard.IsKeyDown(Key.D2))
             {
-                World.Instance.DebugStatus.Camera = !World.Instance.DebugStatus.Camera;
+                ((MainWindowViewModel)DataContext).CourseDisplay.ToggleCamera();
             }
 
-            if (Keyboard.IsKeyDown(Key.D3))
-            {
-                World.Instance.DebugStatus.Radar = !World.Instance.DebugStatus.Radar;
-            }
+            //if (Keyboard.IsKeyDown(Key.D3))
+            //{
+            //    World.Instance.DebugStatus.Radar = !World.Instance.DebugStatus.Radar;
+            //}
 
-            if (Keyboard.IsKeyDown(Key.D4))
-            {
-                World.Instance.DebugStatus.Ultrasonic = !World.Instance.DebugStatus.Ultrasonic;
-            }
+            //if (Keyboard.IsKeyDown(Key.D4))
+            //{
+            //    World.Instance.DebugStatus.Ultrasonic = !World.Instance.DebugStatus.Ultrasonic;
+            //}
 
-            if (Keyboard.IsKeyDown(Key.D5))
-            {
-                World.Instance.DebugStatus.Rotate = !World.Instance.DebugStatus.Rotate;
-            }
+            //if (Keyboard.IsKeyDown(Key.D5))
+            //{
+            //    World.Instance.DebugStatus.Rotate = !World.Instance.DebugStatus.Rotate;
+            //}
 
             if (Keyboard.IsKeyDown(Key.F1))
             {

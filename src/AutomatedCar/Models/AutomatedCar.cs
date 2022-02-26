@@ -22,7 +22,7 @@ namespace AutomatedCar.Models
 
         public int Revolution { get; set; }
         public int Velocity { get; set; }
-        public Geometry Geometry { get; set; }
+        public PolylineGeometry Geometry { get; set; }
 
         public RadarSensor RadarSensor { get => this.radarSensor; }
 

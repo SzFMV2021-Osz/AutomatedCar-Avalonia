@@ -26,7 +26,7 @@
         public int Height { get; set; }
         
         private int controlledCarPointer = 0;
-        private DebugStatus debugStatus = new DebugStatus();
+        //private DebugStatus debugStatus = new DebugStatus();
 
         public AutomatedCar ControlledCar
         {
@@ -63,10 +63,10 @@
 
 
 
-        public DebugStatus DebugStatus
-        {
-            get => this.debugStatus;
-        }
+        //public DebugStatus DebugStatus
+        //{
+        //    get => this.debugStatus;
+        //}
 
         public void AddObject(WorldObject worldObject)
         {

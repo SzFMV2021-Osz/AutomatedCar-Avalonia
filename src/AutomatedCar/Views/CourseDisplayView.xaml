@@ -54,7 +54,8 @@
                                 </TransformGroup>
                             </Canvas.RenderTransform>
                             <Image Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}" Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}" Source="{Binding Filename, Converter={x:Static visualization:WorldObjectTransformer.Instance}}" RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}"></Image>
-                            <ItemsControl Items="{Binding RawGeometries, Mode=OneWay}" Tag="{Binding . }" Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}" Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}" IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                          
+                          <ItemsControl Items="{Binding RawGeometries, Mode=OneWay}" Tag="{Binding . }" Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}" Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}" IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <Canvas />
@@ -66,6 +67,7 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
+                          
                         </Canvas>
                         <!-- I have to transform the canvas, otherwise the object will be outside of the canvas -->
                         <Canvas RenderTransformOrigin="{Binding RotationPoint, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
@@ -75,7 +77,7 @@
                                     <TranslateTransform X="{Binding RotationPoint.X, Converter={x:Static visualization:Inverter.Instance}}" Y="{Binding RotationPoint.Y, Converter={x:Static visualization:Inverter.Instance}}" />
                                 </TransformGroup>
                             </Canvas.RenderTransform>
-
+                      
                             <ItemsControl Items="{Binding Geometries, Mode=OneWay}" Tag="{Binding . }" Width="{Binding Filename, Converter={x:Static visualization:WorldObjectWidthTransformer.Instance}}" Height="{Binding Filename, Converter={x:Static visualization:WorldObjectHeightTransformer.Instance}}" IsVisible="{Binding Path=DataContext.DebugStatus.Rotate, RelativeSource={RelativeSource AncestorType=UserControl}}" Background="orange" Opacity="0.50">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -84,7 +86,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <!-- But as the geometries are transformed and the canvas is also transformed, i have to inverse transform them for visualization -->
+                                        
                                         <Polyline Stroke="#471D70" StrokeThickness="5" Points="{Binding Points}" RenderTransformOrigin="{Binding Tag.RotationPoint, RelativeSource={RelativeSource AncestorType=ItemsControl}, Converter={x:Static visualization:RenderTransformOriginTransformer.Instance}}">
                                             <Polyline.RenderTransform>
                                                 <TransformGroup>
@@ -96,6 +98,7 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
+                   
                         </Canvas>
                     </Canvas>
                 </DataTemplate>
