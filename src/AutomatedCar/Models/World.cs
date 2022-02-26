@@ -72,11 +72,12 @@
 
         private DebugStatus debugStatus = new DebugStatus();
 
-        public DebugStatus DebugStatus
-        {
-            get => this.debugStatus;
-            //set => this.RaiseAndSetIfChanged(ref this.debugStatus, value);
-        }
+
+
+        //public DebugStatus DebugStatus
+        //{
+        //    get => this.debugStatus;
+        //}
 
         public void AddObject(WorldObject worldObject)
         {

@@ -21,6 +21,7 @@
             this.worldObject.PropertyChangedEvent += this.OnPropertyChanged;
         }
 
+
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             this.RaisePropertyChanged(args.PropertyName);
@@ -61,12 +62,12 @@
             get => this.worldObject.RenderTransformOrigin;
         }
 
-        public ObservableCollection<PolylineGeometry> Geometries
+        public List<PolylineGeometry> Geometries
         {
             get => this.worldObject.Geometries;
         }
 
-        public ObservableCollection<PolylineGeometry> RawGeometries
+        public List<PolylineGeometry> RawGeometries
         {
             get => this.worldObject.RawGeometries;
         }

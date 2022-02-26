@@ -39,5 +39,15 @@ namespace AutomatedCar.ViewModels
         {
             World.Instance.ControlledCar.Y -= 5;
         }
+
+        public void ToggleDebug()
+        {
+            this.debugStatus.Enabled = !this.debugStatus.Enabled;
+        }
+
+        public void ToggleCamera()
+        {
+            this.DebugStatus.Camera = !this.DebugStatus.Camera;
+        }
     }
 }
