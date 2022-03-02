@@ -34,15 +34,15 @@
             set
             {
                 this.controlledCarPointer = value;
-                // this.RaiseAndSetIfChanged(ref this.controlledCarPointer, value);
-                // this.RaisePropertyChanged("ControlledCar");
             }
         }
+
         public void AddControlledCar(AutomatedCar controlledCar)
         {
             this.controlledCars.Add(controlledCar);
             this.AddObject(controlledCar);
         }
+
         public void NextControlledCar()
         {
             if (this.controlledCarPointer < this.controlledCars.Count - 1)
@@ -54,6 +54,7 @@
                 this.ControlledCarPointer = 0;
             }
         }
+
         public void PrevControlledCar()
         {
             if (this.controlledCarPointer > 0)
@@ -71,13 +72,6 @@
         public int Height { get; set; }
 
         private DebugStatus debugStatus = new DebugStatus();
-
-
-
-        //public DebugStatus DebugStatus
-        //{
-        //    get => this.debugStatus;
-        //}
 
         public void AddObject(WorldObject worldObject)
         {
@@ -121,7 +115,7 @@
 
                 if (worldObjectPolygons.ContainsKey(rwo.Type))
                 {
-                    // fucking deep copy
+                    // deep copy
                     foreach (var g in worldObjectPolygons[rwo.Type])
                     {
                         wo.Geometries.Add(new PolylineGeometry(g.Points, false));
@@ -136,7 +130,6 @@
                         var transformGroup = new TransformGroup();
                         transformGroup.Children.Add(rotate);
                         transformGroup.Children.Add(translate);
-                        // geometry.Transform = transformGroup;
 
                         var mx2 = new System.Drawing.Drawing2D.Matrix(rwo.M11, rwo.M12, rwo.M21, rwo.M22, wo.RotationPoint.X, wo.RotationPoint.Y);
                         var mx = new System.Drawing.Drawing2D.Matrix();
@@ -146,12 +139,8 @@
 
                         var gpa2 = this.ToDotNetPoints(geometry.Points).ToArray();
                         this.ToDotNetPoints(geometry.Points).CopyTo(gpa);
-                        // var gpa = ToDotNetPoints(geometry.Points, rwo.X, rwo.Y).ToArray();
-                        // mx.TransformPoints(gpa);
                         mx2.TransformPoints(gpa2);
                         geometry.Points = this.ToAvaloniaPoints(gpa2);
-                        // geometry.Points = this.ToAvaloniaPoints(gpa);
-                        // geometry.Transform = new RotateTransform(wo.Rotation);
                     }
                 }
 

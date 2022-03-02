@@ -30,8 +30,8 @@
         {
             World.Instance.NextControlledCar();
             this.Dashboard = new DashboardViewModel(World.Instance.ControlledCar);
-
         }
+
         public void PrevControlledCar()
         {
             World.Instance.PrevControlledCar();

@@ -1,7 +1,5 @@
-using System;
 namespace AutomatedCar.Views
 {
-    using AutomatedCar.Models;
     using AutomatedCar.ViewModels;
     using Avalonia.Controls;
     using Avalonia.Input;
@@ -12,13 +10,13 @@ namespace AutomatedCar.Views
         public MainWindow()
         {
             this.InitializeComponent();
-            FocusCar();
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
             Keyboard.Keys.Add(e.Key);
             base.OnKeyDown(e);
+
             MainWindowViewModel viewModel = (MainWindowViewModel)this.DataContext;
 
             if (Keyboard.IsKeyDown(Key.Up))
@@ -94,7 +92,8 @@ namespace AutomatedCar.Views
                 Keyboard.Keys.Remove(Key.F5);
             }
 
-            this.FocusCar();
+            var scrollViewer = this.Get<CourseDisplayView>("courseDisplay").Get<ScrollViewer>("scrollViewer");
+            viewModel.CourseDisplay.FocusCar(scrollViewer);
         }
 
         protected override void OnKeyUp(KeyEventArgs e)
@@ -107,14 +106,5 @@ namespace AutomatedCar.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
-
-        public void FocusCar()
-        {
-            var scrollViewer = this.Get<CourseDisplayView>("courseDisplay").Get<ScrollViewer>("scrollViewer");
-            var offsetX = World.Instance.ControlledCar.X - (scrollViewer.Viewport.Width / 2);
-            var offsetY = World.Instance.ControlledCar.Y - (scrollViewer.Viewport.Height / 2);
-            scrollViewer.Offset = new Avalonia.Vector(offsetX, offsetY);
-        }
-
     }
 }

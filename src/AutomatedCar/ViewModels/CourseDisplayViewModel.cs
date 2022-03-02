@@ -6,7 +6,7 @@ using ReactiveUI;
 
 namespace AutomatedCar.ViewModels
 {
-
+    using Avalonia.Controls;
     using Models;
     using System;
     using Visualization;
@@ -14,12 +14,12 @@ namespace AutomatedCar.ViewModels
     public class CourseDisplayViewModel : ViewModelBase
     {
         public ObservableCollection<WorldObjectViewModel> WorldObjects { get; } = new ObservableCollection<WorldObjectViewModel>();
-        public ObservableCollection<CarViewModel> Cars { get; } = new ObservableCollection<CarViewModel>();
+      
+        private Avalonia.Vector offset;
 
         public CourseDisplayViewModel(World world)
         {
             this.WorldObjects = new ObservableCollection<WorldObjectViewModel>(world.WorldObjects.Select(wo => new WorldObjectViewModel(wo)));
-            this.Cars = new ObservableCollection<CarViewModel>(world.controlledCars.Select(wo => new CarViewModel(wo)));
             this.Width = world.Width;
             this.Height = world.Height;
         }
@@ -27,6 +27,12 @@ namespace AutomatedCar.ViewModels
         public int Width { get; set; }
 
         public int Height { get; set; }
+
+        public Avalonia.Vector Offset
+        {
+            get => this.offset;
+            set => this.RaiseAndSetIfChanged(ref this.offset, value);
+        }
 
         private DebugStatus debugStatus = new DebugStatus();
 
@@ -89,6 +95,13 @@ namespace AutomatedCar.ViewModels
         public void ToggleRotation()
         {
             //World.Instance.DebugStatus.Rotate = !World.Instance.DebugStatus.Rotate;
+        }
+
+        public void FocusCar(ScrollViewer scrollViewer)
+        {
+            var offsetX = World.Instance.ControlledCar.X - (scrollViewer.Viewport.Width / 2);
+            var offsetY = World.Instance.ControlledCar.Y - (scrollViewer.Viewport.Height / 2);
+            this.Offset = new Avalonia.Vector(offsetX, offsetY);
         }
     }
 }

@@ -26,7 +26,6 @@ namespace AutomatedCar
             {
                 var world = this.CreateWorld();
                 desktop.MainWindow = new MainWindow { DataContext = new MainWindowViewModel(world) };
-                ((MainWindow)desktop.MainWindow).FocusCar();
             }
 
             base.OnFrameworkInitializationCompleted();
