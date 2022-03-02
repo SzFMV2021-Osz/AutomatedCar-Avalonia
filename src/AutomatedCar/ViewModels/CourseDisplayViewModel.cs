@@ -8,6 +8,7 @@ namespace AutomatedCar.ViewModels
 {
 
     using Models;
+    using System;
     using Visualization;
 
     public class CourseDisplayViewModel : ViewModelBase
@@ -40,6 +41,31 @@ namespace AutomatedCar.ViewModels
             World.Instance.ControlledCar.Y -= 5;
         }
 
+        public void KeyDown()
+        {
+            World.Instance.ControlledCar.Y += 5;
+        }
+
+        public void KeyLeft()
+        {
+            World.Instance.ControlledCar.X -= 5;
+        }
+
+        public void KeyRight()
+        {
+            World.Instance.ControlledCar.X += 5;
+        }
+
+        public void PageUp()
+        {
+            World.Instance.ControlledCar.Rotation += 5;
+        }
+
+        public void PageDown()
+        {
+            World.Instance.ControlledCar.Rotation -= 5;
+        }
+
         public void ToggleDebug()
         {
             this.debugStatus.Enabled = !this.debugStatus.Enabled;
@@ -48,6 +74,21 @@ namespace AutomatedCar.ViewModels
         public void ToggleCamera()
         {
             this.DebugStatus.Camera = !this.DebugStatus.Camera;
+        }
+
+        public void ToggleRadar()
+        {
+            // World.Instance.DebugStatus.Radar = !World.Instance.DebugStatus.Radar;
+        }
+
+        public void ToggleUltrasonic()
+        {
+            //World.Instance.DebugStatus.Ultrasonic = !World.Instance.DebugStatus.Ultrasonic;
+        }
+
+        public void ToggleRotation()
+        {
+            //World.Instance.DebugStatus.Rotate = !World.Instance.DebugStatus.Rotate;
         }
     }
 }

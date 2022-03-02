@@ -11,7 +11,6 @@ namespace AutomatedCar.Views
     {
         public MainWindow()
         {
-
             this.InitializeComponent();
             FocusCar();
         }
@@ -20,80 +19,82 @@ namespace AutomatedCar.Views
         {
             Keyboard.Keys.Add(e.Key);
             base.OnKeyDown(e);
+            MainWindowViewModel viewModel = (MainWindowViewModel)this.DataContext;
+
             if (Keyboard.IsKeyDown(Key.Up))
             {
-                // World.Instance.ControlledCar.Y -= 5;
-                ((MainWindowViewModel)DataContext).CourseDisplay.KeyUp();
+                viewModel.CourseDisplay.KeyUp();
             }
 
             if (Keyboard.IsKeyDown(Key.Down))
             {
-                World.Instance.ControlledCar.Y += 5;
+                viewModel.CourseDisplay.KeyDown();
             }
 
             if (Keyboard.IsKeyDown(Key.Left))
             {
-                World.Instance.ControlledCar.X -= 5;
+                viewModel.CourseDisplay.KeyLeft();
             }
 
             if (Keyboard.IsKeyDown(Key.Right))
             {
-                World.Instance.ControlledCar.X += 5;
+                viewModel.CourseDisplay.KeyRight();
             }
 
             if (Keyboard.IsKeyDown(Key.PageUp))
             {
-                World.Instance.ControlledCar.Rotation += 5;
+                viewModel.CourseDisplay.PageUp();
             }
 
             if (Keyboard.IsKeyDown(Key.PageDown))
             {
-                World.Instance.ControlledCar.Rotation -= 5;
+                viewModel.CourseDisplay.PageDown();
             }
 
             if (Keyboard.IsKeyDown(Key.D1))
             {
-                //World.Instance.DebugStatus.Enabled = !World.Instance.DebugStatus.Enabled;
-                ((MainWindowViewModel)DataContext).CourseDisplay.ToggleDebug();
+                viewModel.CourseDisplay.ToggleDebug();
             }
 
             if (Keyboard.IsKeyDown(Key.D2))
             {
-                ((MainWindowViewModel)DataContext).CourseDisplay.ToggleCamera();
+                viewModel.CourseDisplay.ToggleCamera();
             }
 
-            //if (Keyboard.IsKeyDown(Key.D3))
-            //{
-            //    World.Instance.DebugStatus.Radar = !World.Instance.DebugStatus.Radar;
-            //}
+            if (Keyboard.IsKeyDown(Key.D3))
+            {
+                viewModel.CourseDisplay.ToggleRadar();
+            }
 
-            //if (Keyboard.IsKeyDown(Key.D4))
-            //{
-            //    World.Instance.DebugStatus.Ultrasonic = !World.Instance.DebugStatus.Ultrasonic;
-            //}
+            if (Keyboard.IsKeyDown(Key.D4))
+            {
+                viewModel.CourseDisplay.ToggleUltrasonic();
+            }
 
-            //if (Keyboard.IsKeyDown(Key.D5))
-            //{
-            //    World.Instance.DebugStatus.Rotate = !World.Instance.DebugStatus.Rotate;
-            //}
+            if (Keyboard.IsKeyDown(Key.D5))
+            {
+                viewModel.CourseDisplay.ToggleRotation();
+            }
 
             if (Keyboard.IsKeyDown(Key.F1))
             {
                 new HelpWindow().Show();
                 Keyboard.Keys.Remove(Key.F1);
             }
+
             if (Keyboard.IsKeyDown(Key.F5))
             {
-                ((MainWindowViewModel)DataContext).NextControlledCar();
-                Keyboard.Keys.Remove(Key.F5);
-            }
-            if (Keyboard.IsKeyDown(Key.F6))
-            {
-                ((MainWindowViewModel)DataContext).PrevControlledCar();
+                viewModel.NextControlledCar();
                 Keyboard.Keys.Remove(Key.F5);
             }
 
-            FocusCar();
+            if (Keyboard.IsKeyDown(Key.F6))
+            {
+                viewModel.PrevControlledCar();
+                Keyboard.Keys.Remove(Key.F5);
+            }
+
+            this.FocusCar();
         }
 
         protected override void OnKeyUp(KeyEventArgs e)
