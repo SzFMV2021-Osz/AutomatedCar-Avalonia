@@ -8,7 +8,6 @@
         Icon="/Assets/car-icon.png"
         Title="AutomatedCar"
         Width="1280" Height="720"
-        xmlns:models="clr-namespace:AutomatedCar.Models;assembly=AutomatedCar"
         xmlns:views="clr-namespace:AutomatedCar.Views;assembly=AutomatedCar"
         xmlns:local="clr-namespace:AutomatedCar;assembly=AutomatedCar"
         xmlns:visualization="clr-namespace:AutomatedCar.Visualization;assembly=AutomatedCar"

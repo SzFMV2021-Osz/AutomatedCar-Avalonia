@@ -2,18 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Globalization;
     using System.IO;
     using System.Reflection;
     using Newtonsoft.Json;
-    using ReactiveUI;
     using Helpers;
     using Visualization;
     using Avalonia.Media;
-    using System.Linq;
 
     public class World
     {

@@ -1,4 +1,12 @@
-<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="AutomatedCar.Views.CourseDisplayView" Width="960" Height="720" xmlns:models="clr-namespace:AutomatedCar.Models;assembly=AutomatedCar" xmlns:viewmodels="clr-namespace:AutomatedCar.ViewModels;assembly=AutomatedCar" xmlns:local="clr-namespace:AutomatedCar;assembly=AutomatedCar" xmlns:visualization="clr-namespace:AutomatedCar.Visualization;assembly=AutomatedCar" DataContext="{Binding CourseDisplay}">
+<UserControl xmlns="https://github.com/avaloniaui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             x:Class="AutomatedCar.Views.CourseDisplayView" Width="960" Height="720"
+             xmlns:viewmodels="clr-namespace:AutomatedCar.ViewModels;assembly=AutomatedCar" 
+             xmlns:local="clr-namespace:AutomatedCar;assembly=AutomatedCar" 
+             xmlns:visualization="clr-namespace:AutomatedCar.Visualization;assembly=AutomatedCar" 
+             DataContext="{Binding CourseDisplay}">
 
     <UserControl.Styles>
         <Style Selector="ItemsControl#CourseDisplay">
@@ -21,28 +29,6 @@
             </ItemsControl.ItemsPanel>
 
             <ItemsControl.DataTemplates>
-                <DataTemplate DataType="{x:Type models:Circle}">
-                    <Canvas>
-                        <Canvas.RenderTransform>
-                            <TransformGroup>
-                                <RotateTransform Angle="{Binding Rotation}" />
-                            </TransformGroup>
-                        </Canvas.RenderTransform>
-                        <Ellipse Fill="black" Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}" />
-                        <ItemsControl Items="{Binding Geometries, Mode=OneWay}" Width="{Binding Width}" Height="{Binding Height}" ZIndex="{Binding ZIndex}" IsVisible="{Binding Path=DataContext.DebugStatus.Enabled, RelativeSource={RelativeSource AncestorType=UserControl}}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <Canvas />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Polyline Stroke="white" StrokeThickness="2" Points="{Binding Points}" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Canvas>
-                </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:WorldObjectViewModel}">
                     <Canvas>
                         <!-- use this when the polygons are not rotated in the model and both the image and the polygon should be rotated -->
