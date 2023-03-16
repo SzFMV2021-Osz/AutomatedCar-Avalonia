@@ -62,7 +62,7 @@ namespace AutomatedCar
 
         private void AddDummyCircleTo(World world)
         {
-            var circle = new Circle(300, 200, "circle.png", 20);
+            var circle = new Circle(300, 500, "circle.png", 20);
             
             circle.Width = 40;
             circle.Height = 40;
